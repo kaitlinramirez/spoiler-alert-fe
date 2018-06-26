@@ -45,6 +45,7 @@ export default {
   data: () => ({
     showForm: false,
     showImage: false,
+    apiURL: 'apiUrl goes here',
     form: {
         name: '',
         type: null,
@@ -57,9 +58,25 @@ export default {
       show: true
   }),
   methods: {
+    postFormData () {
+      fetch(this.apiURL, {
+      method: 'POST',
+      body: data.form
+      })
+      .then((response) => {
+        return response.text();
+      })
+      .then((data) => {
+        console.log('RESULT', data)
+      })
+      .catch(function(error) {
+        console.log('error:', error.message);
+      });
+        alert('Form Submitted!')
+    },
     onSubmit (evt) {
-      evt.preventDefault();
-      alert(JSON.stringify(this.form));
+      evt.preventDefault()
+      postFormData()
     }
   }
 }
@@ -72,3 +89,4 @@ section {
 }
 
 </style>
+
