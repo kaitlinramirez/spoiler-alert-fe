@@ -7,7 +7,7 @@
 
 <script>
 import Form from '@/components/Form'
-import api from '@/lib/api'
+import API from '@/lib/API'
 export default {
   components: {
     Form
@@ -16,7 +16,7 @@ export default {
     foods: []
   }),
   mounted() {
-    api.getFood()
+    this.foods = API.getFood()
   }
 }
 </script>

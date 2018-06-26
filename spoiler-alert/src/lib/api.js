@@ -1,7 +1,7 @@
-const api_url = 'http://localhost:8080'
+const API_URL = 'http://localhost:3000'
 
 export default {
   getFood() {
-    return fetch(api_url).then(res => res.json())
+    return fetch(API_URL).then(res => res.json())
   }
 }
