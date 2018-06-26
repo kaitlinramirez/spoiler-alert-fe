@@ -2,20 +2,13 @@
   <section>
     <button @click="showForm = !showForm" type="button" >Show Form</button>
     <form v-if="showForm">
-      <!-- <label for="food">Food</label>
-      <input type="text" name="food" id="food" value="">
-      <label for="type">Type</label>
-      <input type="text" name="type" id="type" value="">
-      <label for="expiration">Expiration</label>
-      <input type="text" name="expiration" id="expiration" value="">
-      <button type="submit" name="button">Add food item</button> -->
-<b-form @submit="onSubmit" @reset="onReset" v-if="show">
+<b-form @submit="onSubmit" v-if="show">
       <b-form-group id="foodName"
                     label="Food Name:"
                     label-for="foodName">
         <b-form-input id="foodName"
                       type="text"
-                      v-model="form.food"
+                      v-model="form.name"
                       required
                       placeholder="Enter food">
         </b-form-input>
@@ -26,7 +19,7 @@
         <b-form-select id="foodCategory"
                       :options="categories"
                       required
-                      v-model="form.category">
+                      v-model="form.type">
         </b-form-select>
       </b-form-group>
       <b-form-group id="date"
@@ -50,17 +43,22 @@ export default {
   data: () => ({
     showForm: false,
     form: {
-        food: '',
         name: '',
-        category: null,
-        checked: []
+        type: null,
+        date: 'date'
       },
       categories: [
         { text: 'Select One', value: null },
         'Produce', 'Dairy', 'Meat', 'Grain'
       ],
       show: true
-  })
+  }),
+  methods: {
+    onSubmit (evt) {
+      evt.preventDefault();
+      alert(JSON.stringify(this.form));
+    }
+  }
 }
 </script>
 
