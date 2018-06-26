@@ -8,7 +8,7 @@
       <input type="text" name="type" id="type" value="">
       <label for="expiration">Expiration</label>
       <input type="text" name="expiration" id="expiration" value="">
-      <button type="submit" name="button">Submit</button>
+      <button type="submit" name="button">Add food item</button>
     </form>
   </section>
 </template>
