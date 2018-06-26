@@ -1,6 +1,6 @@
 <template>
   <section>
-    <button @click="showForm = !showForm" type="button" >Show Form</button>
+    <button @click="showForm = !showForm" type="button" >Add Food Item</button>
     <form v-if="showForm">
 <b-form @submit="onSubmit" v-if="show">
       <b-form-group id="foodName"
@@ -35,6 +35,8 @@
       <b-button type="submit" variant="primary">Submit Food Item</b-button>
     </b-form>
     </form>
+    <button @click="showImage = !showImage" type="button" >Expiration Guide</button>
+    <img v-if="showImage" src="https://thumbnails-visually.netdna-ssl.com/TheShelfLifeofFood_512f96cbed064.jpg" alt="">
   </section>
 </template>
 
@@ -42,6 +44,7 @@
 export default {
   data: () => ({
     showForm: false,
+    showImage: false,
     form: {
         name: '',
         type: null,
@@ -63,5 +66,9 @@ export default {
 </script>
 
 <style>
+section {
+  display: flex;
+  flex-direction: column;
+}
 
 </style>
