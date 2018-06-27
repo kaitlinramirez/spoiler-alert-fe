@@ -1,6 +1,6 @@
 <template>
     <footer>
-        <small>Copywrite 2018 By Spoiler Alert Inc. TH, KR, KJ, GS, JR</small>
+        <small>Copywrite 2018 Spoiler Alert Inc. TH, KR, KJ, GS, JR</small>
     </footer>
 </template>
 
@@ -11,5 +11,7 @@ export default {
 </script>
 
 <style>
- /* comming soon! */
+footer {
+    position: fixed-bottom;
+}
 </style>

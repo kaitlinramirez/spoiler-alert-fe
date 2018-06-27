@@ -14,5 +14,18 @@ export default {
 </script>
 
 <style>
+main {
+    background-image: url(https://cdn-images-1.medium.com/max/2000/1*wfoo4AtOkOWSUq-7rIT53Q.jpeg);
+    height: 100vh;
+    color: white;
+    text-shadow: 1px 1px black;
+    padding: 5% 5% 5% 5%;
+}
+
+#about {
+    /* opacity: 0.5; */
+}
+
+
 
 </style>

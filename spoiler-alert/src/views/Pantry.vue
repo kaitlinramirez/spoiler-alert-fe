@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div id="pantry">
         <h1>welcome to your pantry!</h1>
         <Form />
     </div>
@@ -22,5 +22,10 @@ export default {
 </script>
 
 <style>
+#pantry {
+        background-image: url(https://cdn-images-1.medium.com/max/2000/1*wfoo4AtOkOWSUq-7rIT53Q.jpeg);
+        height: 100vh;
+
+}
 
 </style>

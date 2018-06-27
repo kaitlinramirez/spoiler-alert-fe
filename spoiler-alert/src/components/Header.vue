@@ -1,7 +1,7 @@
 <template>
     <header>
         <div>
-            <b-navbar type="light" variant="light">
+            <b-navbar class="navbar" type="light" variant="light" fixed="top">
                 <h1>Spoiler Alert!</h1>
                 <Login />
             </b-navbar>
