@@ -5,7 +5,7 @@
           tag="article"
           style="max-width: 20rem;"
           class="mb-2">
-          <img :src="../assets/${food.type}.jpg" alt="">
+          <img :src='foodImg' alt="">
     <p class="card-text">
       {{food.expDate}}
     </p>
@@ -16,7 +16,12 @@
 
 <script>
 export default {
-    props: ['food']
+    props: ['food'],
+    data(){
+      return{
+        foodImg: require(`../assets/${this.food.type}.jpg`)
+      }
+    }
 
 }
 </script>
