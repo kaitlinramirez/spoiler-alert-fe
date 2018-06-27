@@ -19,7 +19,7 @@
               type="submit"
               size="sm"
               class="my-2 my-sm-0"
-              @click.prevent="username(userName)">Login</b-button>
+              @click.prevent="getUser(userName)">Login</b-button>
           </b-nav-form>
         </div>
     </header>
@@ -32,28 +32,16 @@ export default {
   data() {
     return {
       userName: "",
-      // userTable: null
     }
   },
   props: {
     allUsers: Array,
-    username: Function
+    getUser: Function
   },
-  // mounted: function () {
-  //   this.getUsers();
-  // },
   methods: {
     submitUser() {
       console.log(this.userName);
     }
-    // getUsers() {
-    //   const apiUrl =  'https://g-spoiler-alert.herokuapp.com/api/v1/users';
-    //   fetch(apiUrl)
-    //     .then(Response => Response.json())
-    //     .then(Response => {
-    //       this.userTable = Response.users;
-    //     })
-    // }
   }
 }
 </script>

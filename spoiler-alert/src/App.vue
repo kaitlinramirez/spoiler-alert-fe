@@ -2,7 +2,7 @@
   <div id="app">
     <Header
       :allUsers="userTable"
-      :username="getUsername"/>
+      :getUser="getUser"/>
     <router-view/>
     <Footer />
   </div>
@@ -37,7 +37,7 @@ export default {
           this.userTable = Response.users;
         })
     },
-    getUsername(username) {
+    getUser(username) {
       console.log(username);
     }
   }
