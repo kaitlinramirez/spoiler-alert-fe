@@ -1,6 +1,8 @@
 <template>
   <div id="app">
-    <Header />
+    <Header
+      :allUsers="userTable"
+      :username="getUsername"/>
     <router-view/>
     <Footer />
   </div>
@@ -12,11 +14,32 @@ import HomePage from '@/views/HomePage'
 import Footer from '@/components/Footer'
 
 export default {
+  data () {
+    return {
+      userTable: null
+    }
+  },
+  mounted: function () {
+    this.getUsers();
+  },
   name: 'App',
   components: {
     Header,
     HomePage,
     Footer
+  },
+  methods: {
+    getUsers() {
+      const apiUrl =  'https://g-spoiler-alert.herokuapp.com/api/v1/users';
+      fetch(apiUrl)
+        .then(Response => Response.json())
+        .then(Response => {
+          this.userTable = Response.users;
+        })
+    },
+    getUsername(username) {
+      console.log(username);
+    }
   }
 }
 </script>
