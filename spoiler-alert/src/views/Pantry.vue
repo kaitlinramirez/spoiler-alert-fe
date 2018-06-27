@@ -1,15 +1,10 @@
 <template>
     <div class="parallax" id="pantry">
-<<<<<<< HEAD
-      <h2>Welcome to your pantry {{userName}}!</h2>
+      <div class="welcome">
+      <h3>Welcome to your pantry {{userName}}!</h3>
+      </div>
       <Form />
       <pantry-list :foods="foods" />
-=======
-      <div class="welcome">
-        <h3>Welcome to your pantry, {username}!</h3>
-      </div>
-        <Form />
->>>>>>> css-update
     </div>
 </template>
 
