@@ -1,8 +1,15 @@
 <template>
     <div class="parallax" id="pantry">
+<<<<<<< HEAD
       <h2>Welcome to your pantry {{userName}}!</h2>
       <Form />
       <pantry-list :foods="foods" />
+=======
+      <div class="welcome">
+        <h3>Welcome to your pantry, {username}!</h3>
+      </div>
+        <Form />
+>>>>>>> css-update
     </div>
 </template>
 
@@ -54,6 +61,11 @@ export default {
    .welcome {
      margin-top: 14.5%;
    }
+
+   .guide-img {
+     
+   }
 }
 
 </style>
+

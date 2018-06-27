@@ -36,7 +36,7 @@
       </b-form>
     </form>
     <b-button class="main-button" @click="showImage = !showImage" type="button" variant="secondary" >Expiration Guide</b-button>
-    <img v-if="showImage" src="https://thumbnails-visually.netdna-ssl.com/TheShelfLifeofFood_512f96cbed064.jpg" alt="">
+    <img class="guide-img" v-if="showImage" src="https://thumbnails-visually.netdna-ssl.com/TheShelfLifeofFood_512f96cbed064.jpg" alt="">
   </section>
 </template>
 
@@ -90,9 +90,10 @@ section {
   align-items:center;
 }
 
-img {
+.guide-img {
   width: 50%;
   height: auto;
+  margin-bottom: 10%;
 }
 
 .main-button {
