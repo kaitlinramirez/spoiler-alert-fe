@@ -1,5 +1,5 @@
 <template>
-    <section>
+    <section class="food-list">
         <food-item
             v-for="food in foods.items"
             :food="food"
@@ -20,5 +20,11 @@ export default {
 </script>
 
 <style>
-
+    .food-list{
+        display: flex;
+        flex-flow: row wrap;
+        margin: 1vw;
+        justify-content: space-around;
+        align-content: space-around;
+    }
 </style>
