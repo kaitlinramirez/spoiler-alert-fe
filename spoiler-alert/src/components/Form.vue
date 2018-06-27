@@ -1,41 +1,41 @@
 <template>
-  <section>
-    <button @click="showForm = !showForm" type="button" >Add Food Item</button>
+  <section class="container">
+    <b-button @click="showForm = !showForm" type="button" variant="primary">Add Food Item</b-button>
     <form v-if="showForm">
-<b-form @submit="onSubmit" v-if="show">
-      <b-form-group id="foodName"
-                    label="Food Name:"
-                    label-for="foodName">
-        <b-form-input id="foodName"
-                      type="text"
-                      v-model="form.name"
-                      required
-                      placeholder="Enter food">
-        </b-form-input>
-      </b-form-group>
-      <b-form-group id="foodCategory"
-                    label="Category:"
-                    label-for="foodCategory">
-        <b-form-select id="foodCategory"
-                      :options="categories"
-                      required
-                      v-model="form.type">
-        </b-form-select>
-      </b-form-group>
-      <b-form-group id="date"
-                    label="Expiration Date:"
-                    label-for="date">
-        <b-form-input id="date"
-                      type="date"
-                      v-model="form.date"
-                      required
-                      placeholder="Expiration date">
-        </b-form-input>
-      </b-form-group>
-      <b-button type="submit" variant="primary">Submit Food Item</b-button>
-    </b-form>
+      <b-form @submit="onSubmit" v-if="show">
+        <b-form-group id="foodName"
+                      label="Food Name:"
+                      label-for="foodName">
+          <b-form-input id="foodName"
+                        type="text"
+                        v-model="form.name"
+                        required
+                        placeholder="Enter food">
+          </b-form-input>
+        </b-form-group>
+        <b-form-group id="foodCategory"
+                      label="Category:"
+                      label-for="foodCategory">
+          <b-form-select id="foodCategory"
+                        :options="categories"
+                        required
+                        v-model="form.type">
+          </b-form-select>
+        </b-form-group>
+        <b-form-group id="date"
+                      label="Expiration Date:"
+                      label-for="date">
+          <b-form-input id="date"
+                        type="date"
+                        v-model="form.date"
+                        required
+                        placeholder="Expiration date">
+          </b-form-input>
+        </b-form-group>
+        <b-button type="submit" variant="success">Submit Food Item</b-button>
+      </b-form>
     </form>
-    <button @click="showImage = !showImage" type="button" >Expiration Guide</button>
+    <b-button @click="showImage = !showImage" type="button" :variant="primary" >Expiration Guide</b-button>
     <img v-if="showImage" src="https://thumbnails-visually.netdna-ssl.com/TheShelfLifeofFood_512f96cbed064.jpg" alt="">
   </section>
 </template>

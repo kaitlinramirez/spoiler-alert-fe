@@ -1,4 +1,4 @@
-const API_URL = 'http://localhost:3000'
+const API_URL = 'https://g-spoiler-alert.herokuapp.com/api/v1/pantry'
 
 export default {
   getFood() {
