@@ -1,6 +1,8 @@
 <template>
     <div class="parallax" id="pantry">
-        <h2>Welcome to your pantry {username}!</h2>
+      <div class="welcome">
+        <h3>Welcome to your pantry, {username}!</h3>
+      </div>
         <Form />
     </div>
 </template>
@@ -34,4 +36,18 @@ export default {
     background-repeat: no-repeat;
     background-size: cover;
 }
+
+.welcome {
+  background-color: rgba(0, 0, 0, 0.5);
+  margin-top: -.8%;
+  padding-top: .5em;
+  padding-bottom: .5em;
+}
+ 
+ @media (max-width: 500px) {
+   .welcome {
+     margin-top: 14.5%;
+   }
+}
+
 </style>

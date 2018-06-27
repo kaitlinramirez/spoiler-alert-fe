@@ -25,7 +25,4 @@ b-navbar {
     flex-direction: row;
 }
 
-@media (max-width: 500px) {
-
-}
 </style>
