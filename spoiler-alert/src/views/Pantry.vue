@@ -2,16 +2,20 @@
     <div class="parallax" id="pantry">
       <h2>Welcome to your pantry {{userName}}!</h2>
       <Form />
+      <pantry-list :foods="foods" />
     </div>
 </template>
 
 <script>
 import Form from '@/components/Form'
 import API from '@/lib/API'
+import PantryList from '@/components/PantryList'
 
 export default {
+  props: ['foods'],
   components: {
-    Form
+    Form,
+    PantryList
   },
   data: () => ({
     foods: []
