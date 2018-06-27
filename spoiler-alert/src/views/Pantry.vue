@@ -1,13 +1,7 @@
 <template>
     <div class="parallax" id="pantry">
-<<<<<<< HEAD
-      <div class="welcome">
-        <h3>Welcome to your pantry, {username}!</h3>
-      </div>
-=======
-        <h2>Welcome to your pantry {{userName}}!</h2>
->>>>>>> ccbbe051e13fe181e58165eabbe3d8c1a446fe36
-        <Form />
+      <h2>Welcome to your pantry {{userName}}!</h2>
+      <Form />
     </div>
 </template>
 
@@ -51,7 +45,7 @@ export default {
   padding-top: .5em;
   padding-bottom: .5em;
 }
- 
+
  @media (max-width: 500px) {
    .welcome {
      margin-top: 14.5%;
