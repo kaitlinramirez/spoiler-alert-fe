@@ -1,5 +1,5 @@
 <template>
-    <div id="pantry">
+    <div class="parallax" id="pantry">
         <h2>Welcome to your pantry {username}!</h2>
         <Form />
     </div>
@@ -25,8 +25,12 @@ export default {
 <style>
 #pantry {
     background-image: url(https://cdn-images-1.medium.com/max/2000/1*wfoo4AtOkOWSUq-7rIT53Q.jpeg);
-    height: 100vh;
+    min-height: 87vh;
     color: white;
     padding-top: 2%;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 </style>

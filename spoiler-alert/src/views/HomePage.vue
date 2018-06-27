@@ -1,5 +1,5 @@
 <template>
-    <main>
+    <main class="parallax">
         <h2>Problem:</h2>
         <p>So much food in the world goes to waste from us forgetting when it will expire. It is imperative to stem the waste, and make the solution easy to adopt. There has to be an easier solution than trying to keep in mind of all the contents of our fridges and pantries. After all, who doesn't like saving money and being environmentally conscious with minimal effort?</p>
         <h2>Our Solution: Spoiler Alert</h2>
@@ -16,10 +16,14 @@ export default {
 <style>
 main {
     background-image: url(https://cdn-images-1.medium.com/max/2000/1*wfoo4AtOkOWSUq-7rIT53Q.jpeg);
-    height: 100vh;
+    min-height: 87vh;
     color: white;
     text-shadow: 1px 1px black;
     padding: 5% 5% 5% 5%;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 #about {
