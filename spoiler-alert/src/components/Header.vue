@@ -22,22 +22,44 @@
               @click.prevent="getUser(userName) && matchedUser(userName)">Login</b-button>
           </b-nav-form>
         </div>
-    </header>
+      </b-navbar>
+    </div>
+  </header>
 </template>
 
 <script>
-import Login from '@/components/Login'
 
 export default {
   data() {
     return {
       userName: "",
+<<<<<<< HEAD
     }
   },
   props: {
     allUsers: Array,
     getUser: Function,
     matchedUser: Function
+=======
+      userTable: null
+    }
+  },
+  mounted: function () {
+    this.getUsers();
+  },
+  methods: {
+    submitUser() {
+      console.log(this.userName);
+    },
+    getUsers() {
+      const apiUrl =  'https://g-spoiler-alert.herokuapp.com/api/v1/users';
+      fetch(apiUrl)
+        .then(Response => Response.json())
+        .then(Response => {
+          this.userTable = Response.users;
+        })
+    }
+>>>>>>> a5fc45f... remove login componenent and add to header component
   }
 }
 </script>
