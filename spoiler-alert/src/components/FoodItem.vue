@@ -27,8 +27,18 @@ export default {
 </script>
 
 <style>
+article{
+  box-shadow: 4px 8px 8px rgba(0, 0, 0, .5);
+  
+}
 div {
     color: black;
+    padding-bottom: 2em;
+    
+}
+img{
+  height: 120px;
+  width: 240px;
 }
 
 </style>
