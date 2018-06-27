@@ -38,11 +38,6 @@ export default {
   props: {
     allUsers: Array,
     getUser: Function
-  },
-  methods: {
-    submitUser() {
-      console.log(this.userName);
-    }
   }
 }
 </script>

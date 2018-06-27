@@ -16,7 +16,8 @@ import Footer from '@/components/Footer'
 export default {
   data () {
     return {
-      userTable: null
+      userTable: null,
+      userInput: ''
     }
   },
   mounted: function () {
@@ -38,7 +39,7 @@ export default {
         })
     },
     getUser(username) {
-      console.log(username);
+      return this.userInput = username;
     }
   }
 }
