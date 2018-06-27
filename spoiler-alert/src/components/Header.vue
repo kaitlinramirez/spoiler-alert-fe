@@ -19,7 +19,7 @@
               type="submit"
               size="sm"
               class="my-2 my-sm-0"
-              @click.prevent="submitUser">Login</b-button>
+              @click.prevent="username(userName)">Login</b-button>
           </b-nav-form>
         </div>
       </b-navbar>
@@ -33,24 +33,28 @@ export default {
   data() {
     return {
       userName: "",
-      userTable: null
+      // userTable: null
     }
   },
-  mounted: function () {
-    this.getUsers();
+  props: {
+    allUsers: Array,
+    username: Function
   },
+  // mounted: function () {
+  //   this.getUsers();
+  // },
   methods: {
     submitUser() {
       console.log(this.userName);
-    },
-    getUsers() {
-      const apiUrl =  'https://g-spoiler-alert.herokuapp.com/api/v1/users';
-      fetch(apiUrl)
-        .then(Response => Response.json())
-        .then(Response => {
-          this.userTable = Response.users;
-        })
     }
+    // getUsers() {
+    //   const apiUrl =  'https://g-spoiler-alert.herokuapp.com/api/v1/users';
+    //   fetch(apiUrl)
+    //     .then(Response => Response.json())
+    //     .then(Response => {
+    //       this.userTable = Response.users;
+    //     })
+    // }
   }
 }
 </script>
