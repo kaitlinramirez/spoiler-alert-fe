@@ -8,7 +8,7 @@
         fixed="top">
         <h1>Spoiler Alert!</h1>
         <div class="login">
-          <b-nav-form>
+          <b-nav-form class="login">
             <b-form-input
               v-model="userName"
               size="sm"
@@ -44,9 +44,26 @@ export default {
 </script>
 
 <style>
-b-navbar {
+/* b-navbar {
     display: flex;
     flex-direction: row;
+    flex-wrap: nowrap; */
+/* } */
+
+.login {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
+
+/* b-button {
+  margin-left: .5rem;
+} */
+
+@media (max-width: 500px) {
+  button {
+    margin-left: 2%
+  }
 }
 
 </style>

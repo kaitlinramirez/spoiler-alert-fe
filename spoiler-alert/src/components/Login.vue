@@ -44,7 +44,7 @@ export default {
 </script>
   
 <style>
-  .nav-form {
+  b-nav-form {
     display: flex;
     flex-wrap: nowrap;
   }
