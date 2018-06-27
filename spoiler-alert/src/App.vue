@@ -4,7 +4,9 @@
       :allUsers="userTable"
       :getUser="getUser"
       :matchedUser="matchUserId"/>
-    <router-view/>
+    <router-view
+      :userName="userInput"
+      :userId="userId"/>
     <Footer />
   </div>
 </template>
@@ -43,7 +45,7 @@ export default {
     getUser(username) {
       return this.userInput = username;
     },
-    matchUserId(username) {      
+    matchUserId(username) {
       return this.userId = this.userTable.filter(user => user.username === username)[0].id;
     }
   }

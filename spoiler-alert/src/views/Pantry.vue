@@ -1,6 +1,6 @@
 <template>
     <div class="parallax" id="pantry">
-        <h2>Welcome to your pantry {username}!</h2>
+        <h2>Welcome to your pantry {{userName}}!</h2>
         <Form />
     </div>
 </template>
@@ -16,6 +16,10 @@ export default {
   data: () => ({
     foods: []
   }),
+  props: {
+    userName: String,
+    userId: Number
+  },
   async mounted() {
     this.foods = await API.getFood()
   }
