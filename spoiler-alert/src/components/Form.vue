@@ -1,6 +1,6 @@
 <template>
   <section class="container">
-    <b-button @click="showForm = !showForm" type="button" variant="primary">Add Food Item</b-button>
+    <b-button class="main-button" @click="showForm = !showForm" type="button" variant="primary">Add Food Item</b-button>
     <form v-if="showForm">
       <b-form @submit="onSubmit" v-if="show">
         <b-form-group id="foodName"
@@ -32,10 +32,10 @@
                         placeholder="Expiration date">
           </b-form-input>
         </b-form-group>
-        <b-button type="submit" variant="success">Submit Food Item</b-button>
+        <b-button id="submit" type="submit" variant="success">Submit Food Item</b-button>
       </b-form>
     </form>
-    <b-button @click="showImage = !showImage" type="button" :variant="primary" >Expiration Guide</b-button>
+    <b-button class="main-button" @click="showImage = !showImage" type="button" variant="secondary" >Expiration Guide</b-button>
     <img v-if="showImage" src="https://thumbnails-visually.netdna-ssl.com/TheShelfLifeofFood_512f96cbed064.jpg" alt="">
   </section>
 </template>
@@ -87,6 +87,17 @@ section {
   display: flex;
   flex-direction: column;
   margin-top: 2%;
+  align-items:center;
+}
+
+img {
+  width: 50%;
+  height: auto;
+}
+
+.main-button {
+  width: 50%;
+  margin: 1em;
 }
 
 </style>

@@ -11,6 +11,7 @@
 
 <script>
 import Login from '@/components/Login'
+
 export default {
   components: {
     Login
@@ -19,5 +20,9 @@ export default {
 </script>
 
 <style>
+b-navbar {
+    display: flex;
+    flex-direction: row;
+}
 
 </style>
