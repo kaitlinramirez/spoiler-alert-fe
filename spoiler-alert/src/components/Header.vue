@@ -22,11 +22,12 @@
               @click.prevent="getUser(userName) && matchedUser(userName)">Login</b-button>
           </b-nav-form>
         </div>
-    </header>
+      </b-navbar>
+    </div>
+  </header>
 </template>
 
 <script>
-import Login from '@/components/Login'
 
 export default {
   data() {
