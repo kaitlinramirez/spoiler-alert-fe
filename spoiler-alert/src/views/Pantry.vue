@@ -27,6 +27,7 @@ export default {
     background-image: url(https://cdn-images-1.medium.com/max/2000/1*wfoo4AtOkOWSUq-7rIT53Q.jpeg);
     min-height: 87vh;
     color: white;
+    text-shadow: 1px 1px black;
     padding-top: 2%;
     background-attachment: fixed;
     background-position: center;

@@ -31,6 +31,8 @@ export default {
   margin-top: 60px;
   display: flex;
   flex-direction: column;
-  min-height: 87vh;
+  /* min-height: 87vh; */
+  min-height:100%;
+  position:relative;
 }
 </style>
