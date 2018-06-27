@@ -1,20 +1,44 @@
 <template>
-    <header>
-        <div>
-            <b-navbar class="navbar" type="light" variant="light" fixed="top">
-                <h1>Spoiler Alert!</h1>
-                <Login />
-            </b-navbar>
+  <header>
+    <div>
+      <b-navbar
+        class="navbar"
+        type="light"
+        variant="light"
+        fixed="top">
+        <h1>Spoiler Alert!</h1>
+        <div class="login">
+          <b-nav-form>
+            <b-form-input
+              v-model="userName"
+              size="sm"
+              class="mr-sm-2"
+              type="text"
+              placeholder="User Name"/>
+            <b-button
+              type="submit"
+              size="sm"
+              class="my-2 my-sm-0"
+              @click.prevent="getUser(userName) && matchedUser(userName)">Login</b-button>
+          </b-nav-form>
         </div>
-    </header>
+      </b-navbar>
+    </div>
+  </header>
 </template>
 
 <script>
-import Login from '@/components/Login'
 
 export default {
-  components: {
-    Login
+  data() {
+    return {
+      userName: "",
+    }
+  },
+  props: {
+    allUsers: Array,
+    getUser: Function,
+    matchedUser: Function
   }
 }
 </script>

@@ -1,8 +1,12 @@
 <template>
     <div class="parallax" id="pantry">
+<<<<<<< HEAD
       <div class="welcome">
         <h3>Welcome to your pantry, {username}!</h3>
       </div>
+=======
+        <h2>Welcome to your pantry {{userName}}!</h2>
+>>>>>>> ccbbe051e13fe181e58165eabbe3d8c1a446fe36
         <Form />
     </div>
 </template>
@@ -18,6 +22,10 @@ export default {
   data: () => ({
     foods: []
   }),
+  props: {
+    userName: String,
+    userId: Number
+  },
   async mounted() {
     this.foods = await API.getFood()
   }
