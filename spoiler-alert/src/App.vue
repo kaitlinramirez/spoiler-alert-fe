@@ -2,7 +2,8 @@
   <div id="app">
     <Header
       :allUsers="userTable"
-      :getUser="getUser"/>
+      :getUser="getUser"
+      :matchedUser="matchUserId"/>
     <router-view/>
     <Footer />
   </div>
@@ -17,7 +18,8 @@ export default {
   data () {
     return {
       userTable: null,
-      userInput: ''
+      userInput: '',
+      userId: null
     }
   },
   mounted: function () {
@@ -40,6 +42,9 @@ export default {
     },
     getUser(username) {
       return this.userInput = username;
+    },
+    matchUserId(username) {      
+      return this.userId = this.userTable.filter(user => user.username === username)[0].id;
     }
   }
 }
