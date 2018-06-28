@@ -2,7 +2,7 @@
   <section class="container">
     <b-button class="main-button" @click="showForm = !showForm" type="button" variant="primary">Add Food Item</b-button>
     <form v-if="showForm">
-      <b-form @submit="onSubmit" v-if="show">
+      <b-form v-if="show">
         <b-form-group id="foodName"
                       label="Food Name:"
                       label-for="foodName">
@@ -32,7 +32,7 @@
                         placeholder="Expiration date">
           </b-form-input>
         </b-form-group>
-        <b-button id="submit" type="submit" variant="success">Submit Food Item</b-button>
+        <b-button @submit="formPost" id="submit" type="submit" variant="success">Submit Food Item</b-button>
       </b-form>
     </form>
     <b-button class="main-button" @click="showImage = !showImage" type="button" variant="secondary" >Expiration Guide</b-button>
@@ -47,6 +47,7 @@ export default {
     showImage: false,
     apiURL: 'apiUrl goes here',
     form: {
+        userId: 1,
         name: '',
         type: null,
         date: 'date'
@@ -58,25 +59,17 @@ export default {
       show: true
   }),
   methods: {
-    postFormData () {
-      fetch(this.apiURL, {
-      method: 'POST',
-      body: data.form
+    formPost() {
+      fetch('https://g-spoiler-alert.herokuapp.com/api/v1/pantry', {
+        method: "POST",
+        headers: new Headers({"content-type": "application/json"}),
+        body: JSON.stringify(this.form)
       })
-      .then((response) => {
-        return response.text();
-      })
-      .then((data) => {
-        console.log('RESULT', data)
-      })
-      .catch(function(error) {
-        console.log('error:', error.message);
-      });
-        alert('Form Submitted!')
+      .then(res => res.json())
     },
     onSubmit (evt) {
       evt.preventDefault()
-      postFormData()
+      formPost()
     }
   }
 }
