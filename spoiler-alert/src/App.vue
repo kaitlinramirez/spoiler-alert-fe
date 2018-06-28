@@ -27,6 +27,9 @@ export default {
   mounted: function () {
     this.getUsers();
   },
+  updated: function () {
+    this.getUsers();
+  },
   name: 'App',
   components: {
     Header,
@@ -35,10 +38,11 @@ export default {
   },
   methods: {
     getUsers() {
-      const apiUrl =  'https://g-spoiler-alert.herokuapp.com/api/v1/users';
+      const apiUrl =  'http://localhost:3000/api/v1/users';
       fetch(apiUrl)
         .then(Response => Response.json())
         .then(Response => {
+          this.userTable = null;
           this.userTable = Response.users;
         })
     },
@@ -46,17 +50,25 @@ export default {
       return this.userInput = username;
     },
     matchUserId(username) {
-      this.userId = this.userTable.filter(user => user.username === username)[0]
-      if (this.userId.length > 0) {
-        return this.userId.id;
-      } else {
-        console.log('we gotta post')
-      }
+      const filterUsers = this.userTable.filter(user => user.username === username)[0]
+      this.userId = filterUsers;
+      if (this.userId === undefined) {
+          this.createNewUser(this.userInput);
+        }
+        else if (this.userId.length > 0) {
+          return this.userId = filterUsers[0].id;
+        }
     },
     createNewUser(username) {
-      fetch('https://g-spoiler-alert.herokuapp.com/api/v1/users', {
-        method: POST,
-        body: JSON.stringify(username),
+      const data = {
+          'username': username
+        };
+      fetch('http://localhost:3000/api/v1/newuser', {
+        method: 'POST',
+        headers: {
+          'content-type': 'application/json'
+        },
+        body: JSON.stringify(data),
         mode: 'cors',
       })
       .then(res => res.json())
