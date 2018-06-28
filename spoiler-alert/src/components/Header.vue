@@ -1,6 +1,6 @@
 <template>
   <header>
-    <div>
+    <!-- <div> -->
       <b-navbar
         class="navbar"
         type="light"
@@ -24,7 +24,7 @@
           </b-nav-form>
         </div>
       </b-navbar>
-    </div>
+    <!-- </div> -->
   </header>
 </template>
 
@@ -62,8 +62,8 @@ export default {
 } */
 
 @media (max-width: 500px) {
-  button {
-    margin-left: 2%
+  .login {
+    margin-right: 2%
   }
 }
 
