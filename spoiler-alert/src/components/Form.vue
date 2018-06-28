@@ -1,7 +1,7 @@
 <template>
   <section class="container">
     <b-button class="main-button" @click="showForm = !showForm" type="button" variant="primary">Add Food Item</b-button>
-    <form v-if="showForm">
+    <form @submit="formPost" v-if="showForm">
       <b-form v-if="show">
         <b-form-group id="foodName"
                       label="Food Name:"
@@ -32,7 +32,7 @@
                         placeholder="Expiration date">
           </b-form-input>
         </b-form-group>
-        <b-button @submit="formPost" id="submit" type="submit" variant="success">Submit Food Item</b-button>
+        <b-button  id="submit" type="submit" variant="success">Submit Food Item</b-button>
       </b-form>
     </form>
     <b-button class="main-button" @click="showImage = !showImage" type="button" variant="secondary" >Expiration Guide</b-button>
@@ -45,9 +45,8 @@ export default {
   data: () => ({
     showForm: false,
     showImage: false,
-    apiURL: 'apiUrl goes here',
+    apiURL: 'https://g-spoiler-alert.herokuapp.com/api/v1/newitem',
     form: {
-        userId: 1,
         name: '',
         type: null,
         date: 'date'
@@ -60,10 +59,14 @@ export default {
   }),
   methods: {
     formPost() {
-      fetch('https://g-spoiler-alert.herokuapp.com/api/v1/pantry', {
+      const data = this.form
+      fetch('http://localhost:3000/api/v1/newitem', {
         method: "POST",
-        headers: new Headers({"content-type": "application/json"}),
-        body: JSON.stringify(this.form)
+        headers: {
+          "content-type": "application/json"
+        },
+        body: JSON.stringify(data),
+        mode: 'cors'
       })
       .then(res => res.json())
     },
