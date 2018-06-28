@@ -2,37 +2,37 @@
   <section class="container">
     <b-button class="main-button" @click="showForm = !showForm" type="button" variant="primary">Add Food Item</b-button>
     <form v-if="showForm">
-      <b-form @submit="onSubmit" v-if="show">
-        <b-form-group id="foodName"
+      <b-form v-if="show">
+        <b-form-group id="name"
                       label="Food Name:"
                       label-for="foodName">
-          <b-form-input id="foodName"
+          <b-form-input id="name"
                         type="text"
                         v-model="form.name"
                         required
                         placeholder="Enter food">
           </b-form-input>
         </b-form-group>
-        <b-form-group id="foodCategory"
+        <b-form-group id="type"
                       label="Category:"
                       label-for="foodCategory">
-          <b-form-select id="foodCategory"
+          <b-form-select id="type"
                         :options="categories"
                         required
                         v-model="form.type">
           </b-form-select>
         </b-form-group>
-        <b-form-group id="date"
+        <b-form-group id="expDate"
                       label="Expiration Date:"
                       label-for="date">
-          <b-form-input id="date"
+          <b-form-input id="expDate"
                         type="date"
-                        v-model="form.date"
+                        v-model="form.expDate"
                         required
                         placeholder="Expiration date">
           </b-form-input>
         </b-form-group>
-        <b-button id="submit" type="submit" variant="success">Submit Food Item</b-button>
+        <b-button @click="onSubmit()" type="submit" variant="success">Submit Food Item</b-button>
       </b-form>
     </form>
     <b-button class="main-button" @click="showImage = !showImage" type="button" variant="secondary" >Expiration Guide</b-button>
@@ -45,11 +45,12 @@ export default {
   data: () => ({
     showForm: false,
     showImage: false,
-    apiURL: 'apiUrl goes here',
+    apiURL: 'https://g-spoiler-alert.herokuapp.com/api/v1/newitem',
     form: {
+        user_id: 2,
         name: '',
         type: null,
-        date: 'date'
+        expDate: 'date'
       },
       categories: [
         { text: 'Select One', value: null },
@@ -58,26 +59,25 @@ export default {
       show: true
   }),
   methods: {
-    postFormData () {
-      fetch(this.apiURL, {
-      method: 'POST',
-      body: data.form
+    onSubmit() {
+      console.log('i am being called')
+      console.log(this.form)
+      const data = this.form
+      fetch('http://localhost:3000/api/v1/newitem', {
+        method: "POST",
+        headers: {
+          "content-type": "application/json"
+        },
+        body: JSON.stringify(data),
+        mode: 'cors',
       })
-      .then((response) => {
-        return response.text();
-      })
-      .then((data) => {
-        console.log('RESULT', data)
-      })
-      .catch(function(error) {
-        console.log('error:', error.message);
-      });
-        alert('Form Submitted!')
+      .then(res => res.json())
+      .then(res => console.log(res))
     },
-    onSubmit (evt) {
-      evt.preventDefault()
-      postFormData()
-    }
+    // onSubmit (evt) {
+    //   evt.preventDefault()
+    //   formPost()
+    // }
   }
 }
 </script>
