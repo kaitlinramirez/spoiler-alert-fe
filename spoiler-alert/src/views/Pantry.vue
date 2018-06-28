@@ -1,7 +1,7 @@
 <template>
-    <div class="parallax" id="pantry">
+    <div id="pantry">
       <div class="welcome">
-      <h3>Welcome to your pantry {{userName}}!</h3>
+      <h3 class="page-title">Welcome to your pantry {{userName}}!</h3>
       </div>
       <Form />
       <pantry-list :foods="foods" />
@@ -52,14 +52,14 @@ export default {
   padding-bottom: .5em;
 }
 
+
+
  @media (max-width: 500px) {
    .welcome {
-     margin-top: 23.1%;
+     margin-top: 14.5%;
    }
 
-   .guide-img {
-     
-   }
+   
 }
 
 </style>

@@ -12,7 +12,7 @@
             <b-form-input
               v-model="userName"
               size="sm"
-              class="mr-sm-2"
+              class="login-text mr-sm-2"
               type="text"
               placeholder="User Name"/>
             <b-button
@@ -62,7 +62,7 @@ export default {
 } */
 
 @media (max-width: 500px) {
-  .login {
+  .login-text {
     margin-right: 2%
   }
 }
