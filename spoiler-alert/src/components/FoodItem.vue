@@ -26,7 +26,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 article{
   box-shadow: 4px 8px 8px rgba(0, 0, 0, .5);
   

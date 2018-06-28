@@ -62,8 +62,8 @@ export default {
 } */
 
 @media (max-width: 500px) {
-  button {
-    margin-left: 2%
+  .login {
+    margin-right: 2%
   }
 }
 
