@@ -54,7 +54,7 @@ export default {
 
  @media (max-width: 500px) {
    .welcome {
-     margin-top: 14.5%;
+     margin-top: 23.1%;
    }
 
    .guide-img {
