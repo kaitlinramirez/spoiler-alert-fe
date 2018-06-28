@@ -106,4 +106,3 @@ b-form-group[label="Food Name:"] {
 }
 
 </style>
-

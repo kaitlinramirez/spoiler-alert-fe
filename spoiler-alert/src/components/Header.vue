@@ -16,6 +16,7 @@
               type="text"
               placeholder="User Name"/>
             <b-button
+              to="pantry"
               type="submit"
               size="sm"
               class="my-2 my-sm-0"
