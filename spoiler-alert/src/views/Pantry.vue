@@ -24,7 +24,7 @@ export default {
   }),
   props: {
     userName: String,
-    userId: Number
+    userId: Object
   },
   async mounted() {
     this.foods = await API.getFood()
