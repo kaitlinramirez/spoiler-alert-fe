@@ -1,6 +1,6 @@
 <template>
   <header>
-    <div>
+    <!-- <div> -->
       <b-navbar
         class="navbar"
         type="light"
@@ -23,7 +23,7 @@
           </b-nav-form>
         </div>
       </b-navbar>
-    </div>
+    <!-- </div> -->
   </header>
 </template>
 

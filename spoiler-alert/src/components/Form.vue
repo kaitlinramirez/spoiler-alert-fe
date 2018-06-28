@@ -82,7 +82,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 section {
   display: flex;
   flex-direction: column;
@@ -99,6 +99,10 @@ section {
 .main-button {
   width: 50%;
   margin: 1em;
+}
+
+b-form-group[label="Food Name:"] {
+  background-color: rgba(255, 255, 255, 0.5)
 }
 
 </style>
