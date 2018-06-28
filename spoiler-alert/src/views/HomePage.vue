@@ -1,5 +1,5 @@
 <template>
-    <main class="parallax">
+    <main>
         <div class='par-1'>
         <h2>Problem:</h2>
             <p>So much food in the world goes to waste from us forgetting when it will expire. It is imperative to stem the waste, and make the solution easy to adopt. There has to be an easier solution than trying to keep in mind of all the contents of our fridges and pantries. After all, who doesn't like saving money and being environmentally conscious with minimal effort?</p>
