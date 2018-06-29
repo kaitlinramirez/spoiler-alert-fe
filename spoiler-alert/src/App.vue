@@ -26,7 +26,11 @@ export default {
     Footer
   },
 <<<<<<< HEAD
+<<<<<<< HEAD
   methods: { 
+=======
+  methods: {
+>>>>>>> delete
     getUser(username) {
       this.userInput = username;
       this.findUser(username);
