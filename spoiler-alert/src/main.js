@@ -21,7 +21,19 @@ new Vue({
 })
 
 //added for charts
-Vue.use(VueCharts);
-  const app = new Vue({
-      el: '#app'
-  });
+// Vue.use(VueCharts);
+//   const app = new Vue({
+//       el: '#app',
+//       type: 'pie',
+//       data: {
+//         myBoolean: 'false',
+//         label : 'TestDataLabel',
+//         width : '300px',
+//         labels : ['Meat, Dairy, Produce, Grain'],
+//         data : [5,4,3,2],
+//         //items.filter(type).length
+//         //indexes on labels and data will be the same
+//         backgroundColor: ["red", "blue", "green", "yellow"],
+
+//       }
+//   });

@@ -1,9 +1,13 @@
 <template>
     <div id="pantry">
       <div class="welcome">
-      <h3 class="page-title">Welcome to your pantry {{userName}}!</h3>
+        <h3 class="page-title">Welcome to your pantry {{userName}}!</h3>
       </div>
-      <Form />
+      <div id="chart-container">
+        <chart />
+        <p>helloo from chart box!</p>
+      </div>
+        <Form />
       <pantry-list :foods="foods" />
     </div>
 </template>
@@ -12,12 +16,14 @@
 import Form from '@/components/Form'
 import API from '@/lib/API'
 import PantryList from '@/components/PantryList'
+import Chart from '@/components/Chart'
 
 export default {
   props: ['foods'],
   components: {
     Form,
-    PantryList
+    PantryList,
+    Chart
   },
   data: () => ({
     foods: []
