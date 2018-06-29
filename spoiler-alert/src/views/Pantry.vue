@@ -10,7 +10,6 @@
 
 <script>
 import Form from '@/components/Form'
-import API from '@/lib/API'
 import PantryList from '@/components/PantryList'
 
 
