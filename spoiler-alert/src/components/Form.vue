@@ -28,7 +28,7 @@
                           label-for="date">
               <b-form-input id="date"
                             type="date"
-                            v-model="form.date"
+                            v-model="form.expDate"
                             required
                             placeholder="Expiration date">
               </b-form-input>
@@ -44,6 +44,7 @@
 
 <script>
 export default {
+  props: ['getFood'],
   data: () => ({
     showForm: false,
     showImage: false,
@@ -75,6 +76,9 @@ export default {
       })
       .then(res => res.json())
       .then(res => console.log(res))
+      .then(something => {
+        this.getFood()
+      })
     },
     // onSubmit (evt) {
     //   evt.preventDefault()

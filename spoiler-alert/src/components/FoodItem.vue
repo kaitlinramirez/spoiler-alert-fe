@@ -30,10 +30,12 @@ export default {
             body: JSON.stringify(deletedFood),
             headers: new Headers({"content-type": "application/json"})
           })
+          .then(data => {
+            console.log(data);
+            this.getFood();
+          })
           .then(console.log('deleted'))
-          .then(this.getFood())
         }
-
       }
 
 }
