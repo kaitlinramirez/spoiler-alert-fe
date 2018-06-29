@@ -20,7 +20,7 @@ export default {
     return {
       userTable: null,
       userInput: '',
-      userId: null
+      userId: this.matchUsernameToId
     }
   },
   mounted: function () {
@@ -43,16 +43,14 @@ export default {
     getUser(username) {
       return this.userInput = username;
     },
-    matchUserId(username) {
-      const filterUsers = this.userTable.filter(user => user.username === username)[0]
-      this.userId = filterUsers;
-      if (this.userId === undefined) {
-          this.createNewUser(this.userInput);
-        }
-        else if (this.userId.length > 0) {
-          return this.userId = filterUsers[0].id;
-        }
-    },
+    // matchUserId(userInput) {
+    //   const filterUsers = this.userTable.filter(user => user.username === userInput)[0]
+    //   this.userId = filterUsers;
+    //   if (!this.userId) {
+    //       this.createNewUser(this.userInput);
+    //     }
+    //   return this.userId = filterUsers[0].id;
+    // },
     createNewUser(username) {
       const data = {
           'username': username
@@ -60,12 +58,17 @@ export default {
       fetch('http://localhost:3000/api/v1/newuser', {
         method: 'POST',
         headers: {
-          'content-type': 'application/json'
+          'Content-Type': 'application/json'
         },
         body: JSON.stringify(data),
         mode: 'cors',
       })
       .then(res => res.json())
+    }
+  },
+  computed: {
+    matchUsernameToId() {
+      return this.userId = this.userTable.filter(user => user.username === this.userInput)[0].id;
     }
   }
 }
