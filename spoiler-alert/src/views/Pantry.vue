@@ -6,7 +6,9 @@
       <Form />
       <b-button class="main-button" @click.prevent="getFood()" type="button" variant="primary">Your pantry</b-button>
       <article v-if="showPantry">
-        <pantry-list :foods="foods" />
+        <pantry-list
+          :foods="foods"
+          :getFood='getFood'/>
       </article>
     </div>
 </template>
@@ -70,4 +72,3 @@ export default {
 }
 
 </style>
-

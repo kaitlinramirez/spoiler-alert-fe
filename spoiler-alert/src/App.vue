@@ -25,7 +25,7 @@ export default {
     Header,
     Footer
   },
-  methods: { 
+  methods: {
     getUser(username) {
       this.userInput = username;
       this.findUser(username);
