@@ -4,7 +4,10 @@
       <h3 class="page-title">Welcome to your pantry {{userName}}!</h3>
       </div>
       <Form />
-      <pantry-list :foods="foods" />
+      <b-button class="main-button" @click.prevent="getFood()" type="button" variant="primary">Your pantry</b-button>
+      <article v-if="showPantry">
+        <pantry-list :foods="foods" />
+      </article>
     </div>
 </template>
 
@@ -20,22 +23,21 @@ export default {
     PantryList,
   },
   data: () => ({
+    showPantry: true,
     foods: [],
     foodsById: [],
-    userId: this.user_id,
+    // userPantry: this.userId
   }),
   methods: {
     getFood() {
-      const getUserId = this.userId.id
-      const food_API_URL = `http://localhost:3000/api/v1/pantry/${getUserId}`
+      console.log('yo')
+      // const getUserId = this.userId
+      const food_API_URL = `http://localhost:3000/api/v1/pantry/${this.userId}`
       fetch(food_API_URL)
       .then(res => res.json())
       .then(res => this.foods = res)
     }
   },
-  mounted: function() {
-    this.getFood()
-  }
 }
 </script>
 
