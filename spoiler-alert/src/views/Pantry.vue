@@ -13,21 +13,29 @@ import Form from '@/components/Form'
 import API from '@/lib/API'
 import PantryList from '@/components/PantryList'
 
+
 export default {
-  props: ['foods'],
+  props: ['userName', 'userId'],
   components: {
     Form,
-    PantryList
+    PantryList,
   },
   data: () => ({
-    foods: []
+    foods: [],
+    foodsById: [],
+    userId: this.user_id,
   }),
-  props: {
-    userName: String,
-    userId: Object
+  methods: {
+    getFood() {
+      const getUserId = this.userId.id
+      const food_API_URL = `http://localhost:3000/api/v1/pantry/${getUserId}`
+      fetch(food_API_URL)
+      .then(res => res.json())
+      .then(res => this.foods = res)
+    }
   },
-  async mounted() {
-    this.foods = await API.getFood()
+  mounted: function() {
+    this.getFood()
   }
 }
 </script>
@@ -58,8 +66,6 @@ export default {
    .welcome {
      margin-top: 14.5%;
    }
-
-   
 }
 
 </style>
