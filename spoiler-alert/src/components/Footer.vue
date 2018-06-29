@@ -1,6 +1,6 @@
 <template>
     <footer class="footer" type="light" variant="light" fixed="top">
-        <small>Copywrite 2018 Spoiler Alert Inc. TH, KR, KJ, GS, JR</small>
+        <small>&copy; 2018. Spoiler Alert Inc. TH, KR, KJ, GS, JR. Under MIT License. </small>
     </footer>
 </template>
 
