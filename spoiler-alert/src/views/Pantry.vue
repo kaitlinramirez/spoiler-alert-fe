@@ -4,7 +4,7 @@
         <h3 class="page-title">Welcome to your pantry {{userName}}!</h3>
       </div>
       <div id="chart-container">
-        <chart />
+        <chart :foods="foods" />
       </div>
         <Form />
       <pantry-list :foods="foods" />
