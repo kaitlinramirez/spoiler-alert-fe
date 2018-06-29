@@ -3,19 +3,11 @@
       <div class="welcome">
         <h3 class="page-title">Welcome to your pantry {{userName}}!</h3>
       </div>
-<<<<<<< HEAD
-      <Form />
-      <b-button class="main-button" @click.prevent="getFood()" type="button" variant="primary">Your pantry</b-button>
-      <article v-if="showPantry">
-        <pantry-list :foods="foods" />
-      </article>
-=======
       <div id="chart-container">
         <chart :foods="foods" />
       </div>
         <Form />
       <pantry-list :foods="foods" />
->>>>>>> chart
     </div>
 </template>
 
@@ -30,10 +22,7 @@ export default {
   components: {
     Form,
     PantryList,
-<<<<<<< HEAD
-=======
     Chart
->>>>>>> chart
   },
   data: () => ({
     showPantry: true,
