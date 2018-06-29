@@ -19,3 +19,9 @@ new Vue({
   components: { App },
   template: '<App/>'
 })
+
+//added for charts
+Vue.use(VueCharts);
+  const app = new Vue({
+      el: '#app'
+  });
