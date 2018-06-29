@@ -47,7 +47,7 @@ export default {
 
 .welcome {
   background-color: rgba(0, 0, 0, 0.5);
-  margin-top: -.8%;
+  margin-top: -1.4%;
   padding-top: .5em;
   padding-bottom: .5em;
 }
