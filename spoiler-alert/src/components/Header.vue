@@ -1,6 +1,5 @@
 <template>
   <header>
-    <!-- <div> -->
       <b-navbar
         class="navbar"
         type="light"
@@ -24,7 +23,6 @@
           </b-nav-form>
         </div>
       </b-navbar>
-    <!-- </div> -->
   </header>
 </template>
 
@@ -45,11 +43,6 @@ export default {
 </script>
 
 <style>
-/* b-navbar {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap; */
-/* } */
 
 .login {
   display: flex;
@@ -57,9 +50,6 @@ export default {
   flex-wrap: nowrap;
 }
 
-/* b-button {
-  margin-left: .5rem;
-} */
 
 @media (max-width: 500px) {
   .login-text {

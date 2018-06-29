@@ -27,9 +27,6 @@ export default {
   mounted: function () {
     this.getUsers();
   },
-  updated: function () {
-    this.getUsers();
-  },
   name: 'App',
   components: {
     Header,
@@ -42,7 +39,6 @@ export default {
       fetch(apiUrl)
         .then(Response => Response.json())
         .then(Response => {
-          this.userTable = null;
           this.userTable = Response.users;
         })
     },
