@@ -19,7 +19,8 @@
               type="submit"
               size="sm"
               class="my-2 my-sm-0"
-              @click.prevent="getUser(userName) && matchedUser(userName)">Login</b-button>
+              @click.prevent="getUser(userName)">
+              Login</b-button>
           </b-nav-form>
         </div>
       </b-navbar>
@@ -35,9 +36,7 @@ export default {
     }
   },
   props: {
-    allUsers: Array,
-    getUser: Function,
-    matchedUser: Function
+    getUser: Function
   }
 }
 </script>

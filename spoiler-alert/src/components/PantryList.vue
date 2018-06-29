@@ -1,9 +1,9 @@
 <template>
     <section class="food-list">
         <food-item
-            v-for="food in foods.items"
+            v-for="(food, index) in foods.items"
             :food="food"
-            :key="food"/>
+            :key="index"/>
     </section>
 </template>
 
