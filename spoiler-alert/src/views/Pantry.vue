@@ -30,12 +30,13 @@ export default {
   }),
   methods: {
     getFood() {
-      console.log('yo')
-      // const getUserId = this.userId
       const food_API_URL = `http://localhost:3000/api/v1/pantry/${this.userId}`
       fetch(food_API_URL)
       .then(res => res.json())
       .then(res => this.foods = res)
+    },
+    sortPantry() {
+      console.log('sort some shit')
     }
   },
 }
