@@ -13,7 +13,6 @@
 
 <script>
 import Header from '@/components/Header'
-import HomePage from '@/views/HomePage'
 import Footer from '@/components/Footer'
 
 export default {
@@ -30,7 +29,6 @@ export default {
   name: 'App',
   components: {
     Header,
-    HomePage,
     Footer
   },
   methods: {
