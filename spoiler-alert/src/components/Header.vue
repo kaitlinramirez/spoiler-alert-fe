@@ -62,11 +62,7 @@ export default {
 } */
 
 @media (max-width: 500px) {
-<<<<<<< HEAD
   .login {
-=======
-  .login-text {
->>>>>>> css-update-2
     margin-right: 2%
   }
 }
