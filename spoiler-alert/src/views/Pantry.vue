@@ -5,7 +5,6 @@
       </div>
       <div id="chart-container">
         <chart />
-        <p>helloo from chart box!</p>
       </div>
         <Form />
       <pantry-list :foods="foods" />
@@ -40,15 +39,15 @@ export default {
 
 <style>
 #pantry {
-    background-image: url(https://cdn-images-1.medium.com/max/2000/1*wfoo4AtOkOWSUq-7rIT53Q.jpeg);
-    min-height: 87vh;
-    color: white;
-    text-shadow: 1px 1px black;
-    padding-top: 2%;
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+  background-image: url(https://cdn-images-1.medium.com/max/2000/1*wfoo4AtOkOWSUq-7rIT53Q.jpeg);
+  min-height: 87vh;
+  color: white;
+  text-shadow: 1px 1px black;
+  padding-top: 2%;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .welcome {
@@ -58,7 +57,16 @@ export default {
   padding-bottom: .5em;
 }
 
-
+#chart-container {
+  background-color: rgba(0, 0, 0, 0.5);
+  width: inherit;
+  padding-bottom: 5%;
+  border-radius: .25rem;
+  padding-top: 0.375rem;
+  padding-right: 0.75rem;
+  padding-bottom: 0.375rem;
+  padding-left: 0.75rem;
+}
 
  @media (max-width: 500px) {
    .welcome {
