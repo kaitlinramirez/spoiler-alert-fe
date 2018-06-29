@@ -1,9 +1,7 @@
 <template>
   <div id="app">
     <Header
-      :allUsers="userTable"
-      :getUser="getUser"
-      :matchedUser="matchUserId"/>
+      :getUser="getUser"/>
     <router-view
       :userName="userInput"
       :userId="userId"/>
@@ -18,58 +16,29 @@ import Footer from '@/components/Footer'
 export default {
   data () {
     return {
-      userTable: null,
-      userInput: '',
-      userId: this.matchUsernameToId
+      userInput: null,
+      userId: null
     }
-  },
-  mounted: function () {
-    this.getUsers();
   },
   name: 'App',
   components: {
     Header,
     Footer
   },
-  methods: {
-    getUsers() {
-      const apiUrl =  'http://localhost:3000/api/v1/users';
+  methods: { 
+    getUser(username) {
+      this.userInput = username;
+      this.findUser(username);
+    },
+    findUser(username) {
+      const apiUrl =  `http://localhost:3000/api/v1/users/${this.userInput}`;
       fetch(apiUrl)
         .then(Response => Response.json())
         .then(Response => {
-          this.userTable = Response.users;
+          this.userId = Response.user[0].id;
+          this.userInput = Response.user[0].username
         })
     },
-    getUser(username) {
-      return this.userInput = username;
-    },
-    // matchUserId(userInput) {
-    //   const filterUsers = this.userTable.filter(user => user.username === userInput)[0]
-    //   this.userId = filterUsers;
-    //   if (!this.userId) {
-    //       this.createNewUser(this.userInput);
-    //     }
-    //   return this.userId = filterUsers[0].id;
-    // },
-    createNewUser(username) {
-      const data = {
-          'username': username
-        };
-      fetch('http://localhost:3000/api/v1/newuser', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(data),
-        mode: 'cors',
-      })
-      .then(res => res.json())
-    }
-  },
-  computed: {
-    matchUsernameToId() {
-      return this.userId = this.userTable.filter(user => user.username === this.userInput)[0].id;
-    }
   }
 }
 </script>
