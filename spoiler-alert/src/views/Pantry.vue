@@ -1,19 +1,28 @@
 <template>
     <div id="pantry">
       <div class="welcome">
-      <h3 class="page-title">Welcome to your pantry {{userName}}!</h3>
+        <h3 class="page-title">Welcome to your pantry {{userName}}!</h3>
       </div>
       <Form />
+      <Form :getFood="getFood"/>
       <b-button class="main-button" @click.prevent="getFood()" type="button" variant="primary">Your pantry</b-button>
       <article v-if="showPantry">
-        <pantry-list :foods="foods" />
+        <pantry-list
+          :foods="foods"
+          :getFood='getFood'/>
       </article>
+      <div id="chart-container">
+        <chart :foods="foods" />
+      </div>
+        <Form />
+      <pantry-list :foods="foods" />
     </div>
 </template>
 
 <script>
 import Form from '@/components/Form'
 import PantryList from '@/components/PantryList'
+import Chart from '@/components/Chart'
 
 
 export default {
@@ -21,6 +30,7 @@ export default {
   components: {
     Form,
     PantryList,
+    Chart
   },
   data: () => ({
     showPantry: true,
@@ -31,12 +41,14 @@ export default {
   methods: {
     getFood() {
       const food_API_URL = `http://localhost:3000/api/v1/pantry/${this.userId}`
+      console.log(food_API_URL);
       fetch(food_API_URL)
       .then(res => res.json())
-      .then(res => this.foods = res)
-    },
-    sortPantry() {
-      console.log('sort some shit')
+      .then(res => {
+        console.log(res);
+        this.foods = res
+      })
+      .then(console.log('got food yo'))
     }
   },
 }
@@ -44,15 +56,15 @@ export default {
 
 <style>
 #pantry {
-    background-image: url(https://cdn-images-1.medium.com/max/2000/1*wfoo4AtOkOWSUq-7rIT53Q.jpeg);
-    min-height: 87vh;
-    color: white;
-    text-shadow: 1px 1px black;
-    padding-top: 2%;
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+  background-image: url(https://cdn-images-1.medium.com/max/2000/1*wfoo4AtOkOWSUq-7rIT53Q.jpeg);
+  min-height: 87vh;
+  color: white;
+  text-shadow: 1px 1px black;
+  padding-top: 2%;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .welcome {
@@ -62,7 +74,16 @@ export default {
   padding-bottom: .5em;
 }
 
-
+#chart-container {
+  background-color: rgba(0, 0, 0, 0.5);
+  width: inherit;
+  padding-bottom: 5%;
+  border-radius: .25rem;
+  padding-top: 0.375rem;
+  padding-right: 0.75rem;
+  padding-bottom: 0.375rem;
+  padding-left: 0.75rem;
+}
 
  @media (max-width: 500px) {
    .welcome {
@@ -71,4 +92,3 @@ export default {
 }
 
 </style>
-
