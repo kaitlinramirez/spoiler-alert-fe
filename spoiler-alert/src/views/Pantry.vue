@@ -14,7 +14,7 @@
       <div id="chart-container">
         <chart :foods="foods" />
       </div>
-        <Form />
+        <!-- <Form /> -->
       <!-- <pantry-list :foods="foods" /> -->
     </div>
 </template>
