@@ -11,9 +11,17 @@ export default {
           {
             label: 'Data One',
             backgroundColor: ['red', 'green', 'blue', 'yellow'],
-            data: [3, 2, 1, 1]
+            data: [3, 2, 1, 1],
           }
-        ]
+        ],
+        // don\'t know why key not changing font color, grr 
+        // options: {
+        //   legend: {
+        //     labels: {
+        //       fontColor: 'white'
+        //     }
+        //   }
+        // }
       }
     }
   },
