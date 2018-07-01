@@ -15,14 +15,14 @@
         <chart :foods="foods" />
       </div>
         <Form />
-      <pantry-list :foods="foods" />
+      <!-- <pantry-list :foods="foods" /> -->
     </div>
 </template>
 
 <script>
 import Form from '@/components/Form'
 import PantryList from '@/components/PantryList'
-import Chart from '@/components/Chart'
+// import Chart from '@/components/Chart'
 
 
 export default {
@@ -30,7 +30,7 @@ export default {
   components: {
     Form,
     PantryList,
-    Chart
+    // Chart
   },
   data: () => ({
     showPantry: true,
