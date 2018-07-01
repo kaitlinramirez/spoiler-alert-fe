@@ -27,12 +27,12 @@ export default {
                 
             },
             chartData: {
-                labels: ['Meat', 'Produce', 'Dairy', 'Grain'],
+                labels: ['Meat', 'Produce', 'Dairy', 'Grain', 'Leftovers/Other'],
                 datasets: [
                 {
                     label: 'Data One',
-                    backgroundColor: ['red', 'green', 'blue', 'yellow'],
-                    data: [3, 2, 1, 1],
+                    backgroundColor: ['red', 'green', 'blue', 'yellow', 'gray'],
+                    data: [3, 2, 1, 1, 1],
                 }
                 ],
             }
