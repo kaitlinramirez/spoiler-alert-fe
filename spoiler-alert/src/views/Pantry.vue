@@ -11,9 +11,10 @@
           :foods="foods"
           :getFood='getFood'/>
       </article>
-      <!-- <div id="chart-container">
-        <chart :foods="foods" />
-      </div> -->
+
+      <food-chart
+        :user-food='foods'/>
+
         <!-- <Form /> -->
       <!-- <pantry-list :foods="foods" /> -->
     </div>
@@ -22,7 +23,8 @@
 <script>
 import Form from '@/components/Form'
 import PantryList from '@/components/PantryList'
-// import Chart from '@/components/Chart'
+import FoodChart from '@/components/FoodTypeChart'
+
 
 
 export default {
@@ -30,7 +32,7 @@ export default {
   components: {
     Form,
     PantryList,
-    // Chart
+    FoodChart
   },
   data: () => ({
     showPantry: true,
@@ -74,7 +76,7 @@ export default {
   padding-bottom: .5em;
 }
 
-#chart-container {
+/* #chart-container {
   background-color: rgba(0, 0, 0, 0.5);
   width: inherit;
   padding-bottom: 5%;
@@ -83,7 +85,7 @@ export default {
   padding-right: 0.75rem;
   padding-bottom: 0.375rem;
   padding-left: 0.75rem;
-}
+} */
 
  @media (max-width: 500px) {
    .welcome {
