@@ -1,14 +1,45 @@
 <template>
     <div id="chart-container">
         <p>Working!</p>
-        <!-- <chart :foods="foods" /> -->
+        <pie 
+        :chart-data="chartData" 
+        :options="options"/>
       </div>
 </template>
 
 <script>
+import Pie from '../Chart'
 export default {
     props: {
         userFood: Array
+    },
+    components: {
+        Pie
+    },
+    data() {
+        return {
+            options: {
+                legend: {
+                    labels: {
+                        fontColor: "white"
+                    }
+                }
+                
+            },
+            chartData: {
+                labels: ['Meat', 'Produce', 'Dairy', 'Grain'],
+                datasets: [
+                {
+                    label: 'Data One',
+                    backgroundColor: ['red', 'green', 'blue', 'yellow'],
+                    data: [3, 2, 1, 1],
+                }
+                ],
+            }
+        }
+    },
+    methods: {
+
     }
 }
 </script>

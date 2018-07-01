@@ -13,7 +13,7 @@
       </article>
 
       <food-chart
-        :user-food='foods'/>
+        :user-food='foods.items'/>
 
         <!-- <Form /> -->
       <!-- <pantry-list :foods="foods" /> -->
