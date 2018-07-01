@@ -25,12 +25,7 @@ export default {
     Header,
     Footer
   },
-<<<<<<< HEAD
-<<<<<<< HEAD
-  methods: { 
-=======
   methods: {
->>>>>>> delete
     getUser(username) {
       this.userInput = username;
       this.findUser(username);
@@ -44,8 +39,6 @@ export default {
           this.userInput = Response.user[0].username
         })
     },
-=======
-  methods: {
 
     // getStats() {
     //   const apiUrl = 'http://localhost:3000/api/v1/pantry'
@@ -104,7 +97,6 @@ export default {
       })
       .then(res => res.json())
     }
->>>>>>> chart
   }
 }
 </script>
