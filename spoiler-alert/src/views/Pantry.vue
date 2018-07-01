@@ -3,13 +3,6 @@
       <div class="welcome">
         <h3 class="page-title">Welcome to your pantry {{userName}}!</h3>
       </div>
-<<<<<<< HEAD
-      <div id="chart-container">
-        <chart :foods="foods" />
-      </div>
-        <Form />
-      <pantry-list :foods="foods" />
-=======
       <Form />
       <!-- <Form :getFood="getFood"/> -->
       <b-button class="main-button" @click.prevent="getFood()" type="button" variant="primary">Your pantry</b-button>
@@ -23,7 +16,6 @@
       </div> -->
         <!-- <Form /> -->
       <!-- <pantry-list :foods="foods" /> -->
->>>>>>> eb06110b7534e8955f6e249e3a987d94b73ed53b
     </div>
 </template>
 
@@ -38,11 +30,7 @@ export default {
   components: {
     Form,
     PantryList,
-<<<<<<< HEAD
-    Chart
-=======
     // Chart
->>>>>>> eb06110b7534e8955f6e249e3a987d94b73ed53b
   },
   data: () => ({
     showPantry: true,
