@@ -9,7 +9,21 @@
     <p class="card-text">
       {{food.expDate}}
     </p>
+    <b-button @click="showDates = !showDates" variant="outline-success">Update</b-button>
     <b-button @click="deleteFood(food)" variant="danger">Delete</b-button>
+    <div class="update" v-if="showDates">
+      <b-form-group id="date"
+                    label="Expiration Date:"
+                    label-for="date">
+        <b-form-input id="date"
+                      type="date"
+                      v-model="newExpDate"
+                      required
+                      placeholder="Expiration date">
+        </b-form-input>
+      </b-form-group>
+      <b-button @click="updateFood(food)" variant="success">Submit</b-button>
+    </div>
   </b-card>
 </div>
 </template>
@@ -17,14 +31,16 @@
 <script>
 export default {
     props: ['food', 'getFood'],
-    data(){
-      return{
+    data() {
+      return {
+        newExpDate: 'date',
+        showDates: false,
         foodImg: require(`../assets/${this.food.type}.jpg`),
       }
     },
     methods: {
         deleteFood(deletedFood) {
-          const delete_API_URL = `http://localhost:3000/api/v1/${deletedFood.id}`
+          const delete_API_URL = `http://localhost:3000/api/v1/${deletedFood.id}.update`
           fetch(delete_API_URL, {
             method: "DELETE",
             body: JSON.stringify(deletedFood),
@@ -35,9 +51,23 @@ export default {
             this.getFood();
           })
           .then(console.log('deleted'))
+        },
+        updateFood(updateFood) {
+          const updateURL = `http://localhost:3000/api/v1/${updateFood.id}`
+          fetch(updateURL, {
+            method: "PUT",
+            headers: new Headers({"content-type": "application/json"}),
+            body: JSON.stringify({
+              "expDate": this.newExpDate
+            })
+          })
+          .then(response => response.json())
+          .then(data => {
+            this.getFood()
+            this.showDates = false
+          })
         }
       }
-
 }
 </script>
 

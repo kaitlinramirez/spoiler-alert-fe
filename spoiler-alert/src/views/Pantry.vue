@@ -3,8 +3,8 @@
       <div class="welcome">
         <h3 class="page-title">Welcome to your pantry {{userName}}!</h3>
       </div>
-      <Form />
-      <!-- <Form :getFood="getFood"/> -->
+      <!-- <Form /> -->
+      <Form :getFood="getFood"/>
       <b-button class="main-button" @click.prevent="getFood()" type="button" variant="primary">Your pantry</b-button>
       <article v-if="showPantry">
         <pantry-list

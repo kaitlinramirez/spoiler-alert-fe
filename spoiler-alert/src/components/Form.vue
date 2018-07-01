@@ -78,6 +78,7 @@ export default {
       .then(res => console.log(res))
       .then(something => {
         this.getFood()
+        this.showForm = false
       })
     },
     // onSubmit (evt) {
