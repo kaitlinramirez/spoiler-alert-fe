@@ -3,6 +3,7 @@
         <food-item
             v-for="(food, index) in foods.items"
             :food="food"
+            :getFood='getFood'
             :key="index"/>
     </section>
 </template>
@@ -11,7 +12,7 @@
 import FoodItem from '@/components/FoodItem'
 
 export default {
-    props: ['foods'],
+    props: ['foods', 'getFood'],
     components: {
         FoodItem
     }

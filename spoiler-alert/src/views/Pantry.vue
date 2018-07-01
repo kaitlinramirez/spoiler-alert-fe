@@ -3,18 +3,34 @@
       <div class="welcome">
         <h3 class="page-title">Welcome to your pantry {{userName}}!</h3>
       </div>
+<<<<<<< HEAD
       <div id="chart-container">
         <chart :foods="foods" />
       </div>
         <Form />
       <pantry-list :foods="foods" />
+=======
+      <Form />
+      <!-- <Form :getFood="getFood"/> -->
+      <b-button class="main-button" @click.prevent="getFood()" type="button" variant="primary">Your pantry</b-button>
+      <article v-if="showPantry">
+        <pantry-list
+          :foods="foods"
+          :getFood='getFood'/>
+      </article>
+      <!-- <div id="chart-container">
+        <chart :foods="foods" />
+      </div> -->
+        <!-- <Form /> -->
+      <!-- <pantry-list :foods="foods" /> -->
+>>>>>>> eb06110b7534e8955f6e249e3a987d94b73ed53b
     </div>
 </template>
 
 <script>
 import Form from '@/components/Form'
 import PantryList from '@/components/PantryList'
-import Chart from '@/components/Chart'
+// import Chart from '@/components/Chart'
 
 
 export default {
@@ -22,7 +38,11 @@ export default {
   components: {
     Form,
     PantryList,
+<<<<<<< HEAD
     Chart
+=======
+    // Chart
+>>>>>>> eb06110b7534e8955f6e249e3a987d94b73ed53b
   },
   data: () => ({
     showPantry: true,
@@ -32,12 +52,15 @@ export default {
   }),
   methods: {
     getFood() {
-      console.log('yo')
-      // const getUserId = this.userId
       const food_API_URL = `http://localhost:3000/api/v1/pantry/${this.userId}`
+      console.log(food_API_URL);
       fetch(food_API_URL)
       .then(res => res.json())
-      .then(res => this.foods = res)
+      .then(res => {
+        console.log(res);
+        this.foods = res
+      })
+      .then(console.log('got food yo'))
     }
   },
 }
@@ -85,4 +108,3 @@ export default {
 }
 
 </style>
-
