@@ -11,9 +11,9 @@
           :foods="foods"
           :getFood='getFood'/>
       </article>
-      <div id="chart-container">
+      <!-- <div id="chart-container">
         <chart :foods="foods" />
-      </div>
+      </div> -->
         <!-- <Form /> -->
       <!-- <pantry-list :foods="foods" /> -->
     </div>
