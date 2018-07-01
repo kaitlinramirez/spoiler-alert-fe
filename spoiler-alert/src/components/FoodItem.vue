@@ -40,7 +40,7 @@ export default {
     },
     methods: {
         deleteFood(deletedFood) {
-          const delete_API_URL = `http://localhost:3000/api/v1/${deletedFood.id}.update`
+          const delete_API_URL = `http://localhost:3000/api/v1/pantry/delete/${deletedFood.id}`
           fetch(delete_API_URL, {
             method: "DELETE",
             body: JSON.stringify(deletedFood),
@@ -53,7 +53,7 @@ export default {
           .then(console.log('deleted'))
         },
         updateFood(updateFood) {
-          const updateURL = `http://localhost:3000/api/v1/${updateFood.id}`
+          const updateURL = `http://localhost:3000/api/v1/pantry/item/${updateFood.id}`
           fetch(updateURL, {
             method: "PUT",
             headers: new Headers({"content-type": "application/json"}),

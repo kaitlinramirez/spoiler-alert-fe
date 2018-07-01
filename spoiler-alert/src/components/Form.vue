@@ -57,7 +57,7 @@ export default {
       },
       categories: [
         { text: 'Select One', value: null },
-        'Produce', 'Dairy', 'Meat', 'Grain'
+        'Produce', 'Dairy', 'Meat', 'Grain', 'Other'
       ],
       show: true
   }),
@@ -66,7 +66,7 @@ export default {
       console.log('i am being called')
       console.log(this.form)
       const data = this.form
-      fetch('http://localhost:3000/api/v1/newitem', {
+      fetch('http://localhost:3000/api/v1/pantry/newitem', {
         method: "POST",
         headers: {
           "content-type": "application/json"

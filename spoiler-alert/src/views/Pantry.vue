@@ -45,10 +45,9 @@ export default {
       fetch(food_API_URL)
       .then(res => res.json())
       .then(res => {
-        console.log(res);
+        // console.log(res);
         this.foods = res
       })
-      .then(console.log('got food yo'))
     }
   },
 }
