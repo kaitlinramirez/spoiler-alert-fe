@@ -1,6 +1,6 @@
 <template>
     <div id="chart-container">
-        <p>Working!</p>
+        <h3>Food Being Tracked</h3>
         <pie 
         :chart-data="chartData" 
         :options="options"/>
@@ -21,7 +21,7 @@ export default {
             options: {
                 legend: {
                     labels: {
-                        fontColor: "white"
+                        fontColor: "white",
                     }
                 }
                 
@@ -57,8 +57,12 @@ export default {
     }
 
     @media (max-width: 500px){
-        chart{
-            width: 150px;
+        #chart-container {
+            margin-bottom: 1%;
+        }
+
+        #pie-chart{
+            width: inherit;
         }
     }
 </style>

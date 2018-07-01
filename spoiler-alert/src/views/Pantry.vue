@@ -14,7 +14,7 @@
 
       <food-chart
         :user-food='foods.items'/>
-
+        <!-- :update-chart='updatechart' -->
         <!-- <Form /> -->
       <!-- <pantry-list :foods="foods" /> -->
     </div>
@@ -41,6 +41,7 @@ export default {
     // userPantry: this.userId
   }),
   methods: {
+     
     getFood() {
       const food_API_URL = `http://localhost:3000/api/v1/pantry/${this.userId}`
       console.log(food_API_URL);
@@ -53,6 +54,7 @@ export default {
       .then(console.log('got food yo'))
     }
   },
+  
 }
 </script>
 
