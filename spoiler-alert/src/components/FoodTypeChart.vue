@@ -4,14 +4,20 @@
         <pie 
         :chart-data="chartData" 
         :options="options"/>
-      </div>
+        
+    </div>
 </template>
 
 <script>
 import Pie from '../Chart'
 export default {
     props: {
-        userFood: Array
+        userFood: Array,
+        meat: Array,
+        produce: Array,
+        dairy: Array,
+        grain: Array,
+        other: Array
     },
     components: {
         Pie
@@ -32,7 +38,7 @@ export default {
                 {
                     label: 'Data One',
                     backgroundColor: ['red', 'green', 'blue', 'yellow', 'gray'],
-                    data: [3, 2, 1, 1, 1],
+                    data: [0,2,0,0,1]
                 }
                 ],
             }

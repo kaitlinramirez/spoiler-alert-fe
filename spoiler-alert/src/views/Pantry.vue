@@ -13,7 +13,12 @@
       </article>
 
       <food-chart
-        :user-food='foods.items'/>
+        :user-food='foods.items'
+        :meat='meat'
+        :produce='produce'
+        :dairy='dairy'
+        :grain='grain'
+        :other='other'/>
         <!-- :update-chart='updatechart' -->
         <!-- <Form /> -->
       <!-- <pantry-list :foods="foods" /> -->
@@ -38,6 +43,17 @@ export default {
     showPantry: true,
     foods: [],
     foodsById: [],
+    // meat: this.getMeat,
+    // produce: this.getProduce,
+    // dairy: this.getDairy,
+    // grain: this.getGrain,
+    // other: this.getOther
+    meat: this.getMeat,
+    produce: 1,
+    dairy: 2,
+    grain: 1,
+    other: 2
+
     // userPantry: this.userId
   }),
   methods: {
@@ -54,8 +70,36 @@ export default {
       .then(console.log('got food yo'))
     }
   },
-  
+  computed: {
+    getMeat(){
+      return this.foods[0].items.filter( item => {
+        item.type === 'Meat'
+    })
+      
+    },
+    getProduce(){
+      return this.foods.items.filter( item => {
+        item.type === 'Produce'
+      })
+    },
+    getDairy(){
+      return this.foods.items.filter( item => {
+        item.type === 'Dairy'
+      })
+    },
+    getGrain(){
+      return this.foods.items.filter( item => {
+        item.type === 'Grain'
+      })
+    },
+    getOther(){
+      return this.foods.items.filter( item => {
+        item.type === 'Other'
+      })
+    }
+  }
 }
+
 </script>
 
 <style>

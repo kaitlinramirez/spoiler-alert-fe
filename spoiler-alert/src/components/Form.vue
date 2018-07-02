@@ -3,7 +3,7 @@
       <b-button class="main-button" @click="showForm = !showForm" type="button" variant="primary">Add Food Item</b-button>
       <article v-if="showForm" class="form-container">
         <form v-if="showForm">
-          <b-form @submit="onSubmit" v-if="show">
+          <b-form  @submit="onSubmit" v-if="show">
             <b-form-group id="foodName"
                           label="Food Name:"
                           label-for="foodName">
