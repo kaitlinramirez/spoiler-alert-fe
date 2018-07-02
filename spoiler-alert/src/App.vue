@@ -31,7 +31,7 @@ export default {
       this.findUser(username);
     },
     findUser(username) {
-      const apiUrl =  `http://localhost:3000/api/v1/users/${this.userInput}`;
+      const apiUrl =  `https://g-spoiler-alert.herokuapp.com/api/v1/users/${this.userInput}`;
       fetch(apiUrl)
         .then(Response => Response.json())
         .then(Response => {
@@ -39,40 +39,6 @@ export default {
           this.userInput = Response.user[0].username
         })
     },
-
-    // getStats() {
-    //   const apiUrl = 'http://localhost:3000/api/v1/pantry'
-    //   fetch(apiUrl)
-    //     .then(resp => resp.json())
-    //     .then(console.log(resp))
-    //     .then(resp.items.filter(type) {
-    //       if(data.labels.filter(type)toLowerCase()=== type) {
-    //         data.data = resp.items.length
-    //       }
-    //     })
-    // },
-
-    // getType(item) {
-    //   return item.type === data.label.toLowerCase()
-    // },
-
-    // getNumOfType(type) {
-
-    //   return type.length
-    // }
-
-    // getUsers() {
-    //   const apiUrl =  'http://localhost:3000/api/v1/users';
-    //   fetch(apiUrl)
-    //     .then(Response => Response.json())
-    //     .then(Response => {
-    //       this.userTable = Response.users;
-    //     })
-    // },
-    // getUser(username) {
-    //   return this.userInput = username;
-    // },
-    
     matchUserId(username) {
       const filterUsers = this.userTable.filter(user => user.username === username)[0]
       this.userId = filterUsers;
@@ -87,7 +53,7 @@ export default {
       const data = {
           'username': username
         };
-      fetch('http://localhost:3000/api/v1/newuser', {
+      fetch('https://g-spoiler-alert.herokuapp.com/api/v1/newuser', {
         method: 'POST',
         headers: {
           'content-type': 'application/json'

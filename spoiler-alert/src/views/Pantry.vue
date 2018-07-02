@@ -50,7 +50,7 @@ export default {
   }),
   methods: {
     getFood() {
-      const food_API_URL = `http://localhost:3000/api/v1/pantry/${this.userId}`
+      const food_API_URL = `https://g-spoiler-alert.herokuapp.com/api/v1/pantry/${this.userId}`
       console.log(food_API_URL);
       fetch(food_API_URL)
       .then(res => res.json())
