@@ -1,17 +1,26 @@
 <template>
-  <div id="pantry">
-    <div class="welcome">
-      <h3 class="page-title">Welcome to your pantry {{userName}}!</h3>
-    </div>
-    <Form
-      :getFood="getFood"
-      :userId="userId"/>
-    <b-button
-      class="main-button"
-      @click.prevent="getFood()"
-      type="button"
-      variant="primary">Your pantry
-    </b-button>
+    <div id="pantry">
+      <div class="welcome">
+        <h3 class="page-title">Welcome to your pantry {{userName}}!</h3>
+      </div>
+      <Form :getFood="getFood"/>
+      <b-button
+        class="main-button"
+        @click.prevent="getFood()"
+        type="button" variant="primary">Your pantry
+      </b-button>
+      <article v-if="showPantry">
+        <pantry-list
+          :foods="foods"
+          :getFood='getFood'/>
+      </article>
+      <food-chart
+        :user-food='foods.items'
+        :meat='meat'
+        :produce='produce'
+        :dairy='dairy'
+        :grain='grain'
+        :other='other'/>
     <article v-if="showPantry">
       <pantry-list
         :foods="foods"
@@ -24,6 +33,7 @@
 <script>
 import Form from '@/components/Form'
 import PantryList from '@/components/PantryList'
+import FoodChart from '@/components/FoodTypeChart'
 
 
 
@@ -32,12 +42,17 @@ export default {
   components: {
     Form,
     PantryList,
-    // Chart
+    FoodChart
   },
   data: () => ({
     showPantry: true,
     foods: [],
     foodsById: [],
+    meat: this.getMeat,
+    produce: 1,
+    dairy: 2,
+    grain: 1,
+    other: 2
   }),
   methods: {
     getFood() {
@@ -51,7 +66,35 @@ export default {
       })
     }
   },
+  computed: {
+    getMeat(){
+      return this.foods[0].items.filter( item => {
+        item.type === 'Meat'
+      })
+    },
+    getProduce(){
+      return this.foods.items.filter( item => {
+        item.type === 'Produce'
+      })
+    },
+    getDairy(){
+      return this.foods.items.filter( item => {
+        item.type === 'Dairy'
+      })
+    },
+    getGrain(){
+      return this.foods.items.filter( item => {
+        item.type === 'Grain'
+      })
+    },
+    getOther(){
+      return this.foods.items.filter( item => {
+        item.type === 'Other'
+      })
+    }
+  }
 }
+
 </script>
 
 <style>
@@ -73,25 +116,13 @@ export default {
   padding-bottom: .5em;
 }
 
-#chart-container {
-  background-color: rgba(0, 0, 0, 0.5);
-  width: inherit;
-  padding-bottom: 5%;
-  border-radius: .25rem;
-  padding-top: 0.375rem;
-  padding-right: 0.75rem;
-  padding-bottom: 0.375rem;
-  padding-left: 0.75rem;
+@media (max-width: 500px) {
+  .welcome {
+    margin-top: 14.5%;
+  }
+
+  #chart-container {
+    width: inherit
+  }
 }
-
- @media (max-width: 500px) {
-   .welcome {
-     margin-top: 14.5%;
-   }
-
-   #chart-container {
-     width: inherit
-   }
-}
-
 </style>
