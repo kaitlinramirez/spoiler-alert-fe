@@ -1,22 +1,21 @@
 <template>
-    <div id="pantry">
-      <div class="welcome">
-        <h3 class="page-title">Welcome to your pantry {{userName}}!</h3>
-      </div>
-      <!-- <Form /> -->
-      <Form :getFood="getFood"/>
-      <b-button class="main-button" @click.prevent="getFood()" type="button" variant="primary">Your pantry</b-button>
-      <article v-if="showPantry">
-        <pantry-list
-          :foods="foods"
-          :getFood='getFood'/>
-      </article>
-      <!-- <div id="chart-container">
-        <chart :foods="foods" />
-      </div> -->
-        <!-- <Form /> -->
-      <!-- <pantry-list :foods="foods" /> -->
+  <div id="pantry">
+    <div class="welcome">
+      <h3 class="page-title">Welcome to your pantry {{userName}}!</h3>
     </div>
+    <Form :getFood="getFood"/>
+    <b-button class="main-button" @click.prevent="getFood()" type="button" variant="primary">Your pantry</b-button>
+    <article v-if="showPantry">
+      <pantry-list
+        :foods="foods"
+        :getFood='getFood'/>
+    </article>
+    <!-- <div id="chart-container">
+      <chart :foods="foods" />
+    </div> -->
+      <!-- <Form /> -->
+    <!-- <pantry-list :foods="foods" /> -->
+  </div>
 </template>
 
 <script>

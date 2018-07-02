@@ -7,7 +7,7 @@
           class="mb-2">
           <img :src='foodImg' alt="">
     <p class="card-text">
-      {{food.expDate}}
+      {{food.expDate | moment("dddd, MMMM Do")}}
     </p>
     <b-button @click="showDates = !showDates" variant="outline-success">Update</b-button>
     <b-button @click="deleteFood(food)" variant="danger">Delete</b-button>
