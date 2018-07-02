@@ -16,16 +16,15 @@ export default {
     components: {
         FoodItem
     }
-
 }
 </script>
 
 <style>
-    .food-list{
-        display: flex;
-        flex-flow: row wrap;
-        margin: 1vw;
-        justify-content: space-around;
-        align-content: space-around;
-    }
+.food-list{
+    display: flex;
+    flex-flow: row wrap;
+    margin: 1vw;
+    justify-content: space-around;
+    align-content: space-around;
+}
 </style>

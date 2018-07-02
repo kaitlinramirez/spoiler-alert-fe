@@ -3,25 +3,28 @@
     <div class="welcome">
       <h3 class="page-title">Welcome to your pantry {{userName}}!</h3>
     </div>
-    <Form :getFood="getFood"/>
-    <b-button class="main-button" @click.prevent="getFood()" type="button" variant="primary">Your pantry</b-button>
+    <Form
+      :getFood="getFood"
+      :userId="userId"/>
+    <b-button
+      class="main-button"
+      @click.prevent="getFood()"
+      type="button"
+      variant="primary">Your pantry
+    </b-button>
     <article v-if="showPantry">
       <pantry-list
         :foods="foods"
-        :getFood='getFood'/>
+        :getFood="getFood"
+        :userId="userId"/>
     </article>
-    <!-- <div id="chart-container">
-      <chart :foods="foods" />
-    </div> -->
-      <!-- <Form /> -->
-    <!-- <pantry-list :foods="foods" /> -->
   </div>
 </template>
 
 <script>
 import Form from '@/components/Form'
 import PantryList from '@/components/PantryList'
-// import Chart from '@/components/Chart'
+
 
 
 export default {
@@ -35,7 +38,6 @@ export default {
     showPantry: true,
     foods: [],
     foodsById: [],
-    // userPantry: this.userId
   }),
   methods: {
     getFood() {
@@ -57,7 +59,6 @@ export default {
   background-image: url(https://cdn-images-1.medium.com/max/2000/1*wfoo4AtOkOWSUq-7rIT53Q.jpeg);
   min-height: 87vh;
   color: white;
-  text-shadow: 1px 1px black;
   padding-top: 2%;
   background-attachment: fixed;
   background-position: center;
