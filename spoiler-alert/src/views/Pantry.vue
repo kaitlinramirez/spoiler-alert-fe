@@ -21,12 +21,6 @@
         :dairy='dairy'
         :grain='grain'
         :other='other'/>
-    <article v-if="showPantry">
-      <pantry-list
-        :foods="foods"
-        :getFood="getFood"
-        :userId="userId"/>
-    </article>
   </div>
 </template>
 
