@@ -52,14 +52,18 @@ export default {
 
 <style scoped>
     #chart-container {
+        display: block;
         background-color: rgba(0, 0, 0, 0.5);
-        width: inherit;
+        width: 500px;
         padding-bottom: 5%;
         border-radius: .25rem;
         padding-top: 0.375rem;
         padding-right: 0.75rem;
         padding-bottom: 0.375rem;
         padding-left: 0.75rem;
+        margin-left: auto;
+        margin-right: auto;
+        
     }
 
     @media (max-width: 500px){
@@ -67,8 +71,5 @@ export default {
             margin-bottom: 1%;
         }
 
-        #pie-chart{
-            width: inherit;
-        }
     }
 </style>
