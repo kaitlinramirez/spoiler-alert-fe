@@ -1,8 +1,28 @@
 <template>
-  <div id="pantry">
-    <div class="welcome">
-      <h3 class="page-title">Welcome to your pantry {{userName}}!</h3>
-    </div>
+    <div id="pantry">
+      <div class="welcome">
+        <h3 class="page-title">Welcome to your pantry {{userName}}!</h3>
+      </div>
+      <Form />
+      <!-- <Form :getFood="getFood"/> -->
+      <b-button class="main-button" @click.prevent="getFood()" type="button" variant="primary">Your pantry</b-button>
+      <article v-if="showPantry">
+        <pantry-list
+          :foods="foods"
+          :getFood='getFood'/>
+      </article>
+
+      <food-chart
+        :user-food='foods.items'
+        :meat='meat'
+        :produce='produce'
+        :dairy='dairy'
+        :grain='grain'
+        :other='other'/>
+        <!-- :update-chart='updatechart' -->
+        <!-- <Form /> -->
+      <!-- <pantry-list :foods="foods" /> -->
+    
     <Form :getFood="getFood"/>
     <b-button class="main-button" @click.prevent="getFood()" type="button" variant="primary">Your pantry</b-button>
     <article v-if="showPantry">
@@ -16,12 +36,14 @@
       <!-- <Form /> -->
     <!-- <pantry-list :foods="foods" /> -->
   </div>
+  
 </template>
 
 <script>
 import Form from '@/components/Form'
 import PantryList from '@/components/PantryList'
-// import Chart from '@/components/Chart'
+import FoodChart from '@/components/FoodTypeChart'
+
 
 
 export default {
@@ -29,15 +51,27 @@ export default {
   components: {
     Form,
     PantryList,
-    // Chart
+    FoodChart
   },
   data: () => ({
     showPantry: true,
     foods: [],
     foodsById: [],
+    // meat: this.getMeat,
+    // produce: this.getProduce,
+    // dairy: this.getDairy,
+    // grain: this.getGrain,
+    // other: this.getOther
+    meat: this.getMeat,
+    produce: 1,
+    dairy: 2,
+    grain: 1,
+    other: 2
+
     // userPantry: this.userId
   }),
   methods: {
+     
     getFood() {
       const food_API_URL = `http://localhost:3000/api/v1/pantry/${this.userId}`
       console.log(food_API_URL);
@@ -49,7 +83,36 @@ export default {
       })
     }
   },
+  computed: {
+    getMeat(){
+      return this.foods[0].items.filter( item => {
+        item.type === 'Meat'
+    })
+      
+    },
+    getProduce(){
+      return this.foods.items.filter( item => {
+        item.type === 'Produce'
+      })
+    },
+    getDairy(){
+      return this.foods.items.filter( item => {
+        item.type === 'Dairy'
+      })
+    },
+    getGrain(){
+      return this.foods.items.filter( item => {
+        item.type === 'Grain'
+      })
+    },
+    getOther(){
+      return this.foods.items.filter( item => {
+        item.type === 'Other'
+      })
+    }
+  }
 }
+
 </script>
 
 <style>
@@ -72,7 +135,7 @@ export default {
   padding-bottom: .5em;
 }
 
-#chart-container {
+/* #chart-container {
   background-color: rgba(0, 0, 0, 0.5);
   width: inherit;
   padding-bottom: 5%;
@@ -81,7 +144,7 @@ export default {
   padding-right: 0.75rem;
   padding-bottom: 0.375rem;
   padding-left: 0.75rem;
-}
+} */
 
  @media (max-width: 500px) {
    .welcome {
