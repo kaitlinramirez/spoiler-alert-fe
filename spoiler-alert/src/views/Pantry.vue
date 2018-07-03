@@ -16,11 +16,11 @@
       </article>
       <food-chart
         :user-food='foods.items'
-        :meat='meat'
-        :produce='produce'
-        :dairy='dairy'
-        :grain='grain'
-        :other='other'/>
+        :meat='getMeat'
+        :produce='getProduce'
+        :dairy='getDairy'
+        :grain='getGrain'
+        :other='getOther'/>
   </div>
 </template>
 
@@ -40,13 +40,14 @@ export default {
   },
   data: () => ({
     showPantry: true,
+    items: [],
     foods: [],
     foodsById: [],
-    meat: this.getMeat,
-    produce: 1,
-    dairy: 2,
-    grain: 1,
-    other: 2
+    // meat: 10,
+    // produce: 1,
+    // dairy: 2,
+    // grain: 1,
+    // other: 2
   }),
   methods: {
     getFood() {
@@ -56,34 +57,36 @@ export default {
       .then(res => res.json())
       .then(res => {
         // console.log(res);
-        this.foods = res
+        this.foods = res.items ? res.items : res
       })
     }
   },
   computed: {
     getMeat(){
-      return this.foods[0].items.filter( item => {
-        item.type === 'Meat'
+      console.log(this.foods);
+      
+      return this.foods.filter( item => {
+        return item.type === 'Meat'
       })
     },
     getProduce(){
-      return this.foods.items.filter( item => {
-        item.type === 'Produce'
+      return this.foods.filter( item => {
+        return item.type === 'Produce'
       })
     },
     getDairy(){
-      return this.foods.items.filter( item => {
-        item.type === 'Dairy'
+      return this.foods.filter( item => {
+        return item.type === 'Dairy'
       })
     },
     getGrain(){
-      return this.foods.items.filter( item => {
-        item.type === 'Grain'
+      return this.foods.filter( item => {
+        return item.type === 'Grain'
       })
     },
     getOther(){
-      return this.foods.items.filter( item => {
-        item.type === 'Other'
+      return this.foods.filter( item => {
+        return item.type === 'Other'
       })
     }
   }

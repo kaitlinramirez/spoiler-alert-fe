@@ -38,7 +38,7 @@ export default {
                 {
                     label: 'Data One',
                     backgroundColor: ['red', 'green', 'blue', 'yellow', 'gray'],
-                    data: [0,2,0,0,1]
+                    data: [this.meat.length, this.produce.length, this.dairy.length, this.grain.length, this.other.length]
                 }
                 ],
             }
