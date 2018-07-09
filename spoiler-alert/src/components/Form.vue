@@ -84,7 +84,7 @@ export default {
     showForm: false,
     showImage: false,
     form: {
-      user_id: 2,
+      user_id: this.setId,
         name: '',
         type: null,
         expDate: null
