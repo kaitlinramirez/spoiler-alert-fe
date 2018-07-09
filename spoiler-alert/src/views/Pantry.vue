@@ -3,7 +3,9 @@
     <div class="welcome">
       <h3 class="page-title">Welcome to your pantry {{ userName }}!</h3>
     </div>
-    <Form :getFood="getFood"/>
+    <Form
+      :get-food="getFood"
+      :user-id="userId"/>
     <b-button
       class="main-button"
       type="button"
