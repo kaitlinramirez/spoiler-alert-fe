@@ -53,7 +53,6 @@ export default {
     return {
     showPantry: true,
     foods: [],
-    foodsById: [],
     meat: this.getMeat,
     produce: 1,
     dairy: 2,
@@ -88,9 +87,6 @@ export default {
       })
     }
   },
-  // mounted: function () {
-  //   this.getFood()
-  // },
   methods: {
     getFood() {
       const apiUrl = `https://g-spoiler-alert.herokuapp.com/api/v1/pantry/${this.userId}`
