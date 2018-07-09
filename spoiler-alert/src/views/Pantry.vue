@@ -1,26 +1,27 @@
 <template>
-    <div id="pantry">
-      <div class="welcome">
-        <h3 class="page-title">Welcome to your pantry {{userName}}!</h3>
-      </div>
-      <Form :getFood="getFood"/>
-      <b-button
-        class="main-button"
-        @click.prevent="getFood()"
-        type="button" variant="primary">Your pantry
-      </b-button>
-      <article v-if="showPantry">
-        <pantry-list
-          :foods="foods"
-          :getFood='getFood'/>
-      </article>
-      <food-chart
-        :user-food='foods.items'
-        :meat='meat'
-        :produce='produce'
-        :dairy='dairy'
-        :grain='grain'
-        :other='other'/>
+  <div id="pantry">
+    <div class="welcome">
+      <h3 class="page-title">Welcome to your pantry {{ userName }}!</h3>
+    </div>
+    <Form :getFood="getFood"/>
+    <b-button
+      class="main-button"
+      type="button"
+      variant="primary"
+      @click.prevent="getFood()">Your pantry
+    </b-button>
+    <article v-if="showPantry">
+      <pantry-list
+        :foods="foods"
+        :get-food="getFood"/>
+    </article>
+    <food-chart
+      :user-food="foods.items"
+      :meat="meat"
+      :produce="produce"
+      :dairy="dairy"
+      :grain="grain"
+      :other="other"/>
   </div>
 </template>
 
@@ -29,14 +30,23 @@ import Form from '@/components/Form'
 import PantryList from '@/components/PantryList'
 import FoodChart from '@/components/FoodTypeChart'
 
-
-
 export default {
-  props: ['userName', 'userId'],
   components: {
     Form,
     PantryList,
     FoodChart
+  },
+  props: {
+     userId: {
+      type: Number,
+      default: null,
+      required: true
+    },
+    userName: {
+      type: String,
+      default: null,
+      required: true
+    }
   },
   data: () => ({
     showPantry: true,
@@ -48,18 +58,6 @@ export default {
     grain: 1,
     other: 2
   }),
-  methods: {
-    getFood() {
-      const food_API_URL = `https://g-spoiler-alert.herokuapp.com/api/v1/pantry/${this.userId}`
-      console.log(food_API_URL);
-      fetch(food_API_URL)
-      .then(res => res.json())
-      .then(res => {
-        // console.log(res);
-        this.foods = res
-      })
-    }
-  },
   computed: {
     getMeat(){
       return this.foods[0].items.filter( item => {
@@ -84,6 +82,18 @@ export default {
     getOther(){
       return this.foods.items.filter( item => {
         item.type === 'Other'
+      })
+    }
+  },
+  methods: {
+    getFood() {
+      const food_API_URL = `https://g-spoiler-alert.herokuapp.com/api/v1/pantry/${this.userId}`
+      console.log(food_API_URL);
+      fetch(food_API_URL)
+      .then(res => res.json())
+      .then(res => {
+        // console.log(res);
+        this.foods = res
       })
     }
   }

@@ -1,70 +1,90 @@
 <template>
   <section class="container">
-      <b-button class="main-button" @click="showForm = !showForm" type="button" variant="primary">Add Food Item</b-button>
-      <article v-if="showForm" class="form-container">
-        <form v-if="showForm">
-          <b-form @submit="onSubmit" v-if="show">
-            <b-form-group
+    <b-button
+      class="main-button"
+      variant="primary"
+      type="button"
+      @click="showForm = !showForm">Add Food Item
+    </b-button>
+    <article
+      v-if="showForm"
+      class="form-container">
+      <form v-if="showForm">
+        <b-form
+          v-if="show"
+          @submit="onSubmit">
+          <b-form-group
+            id="foodName"
+            label="Food Name:"
+            label-for="foodName">
+            <b-form-input
               id="foodName"
-              label="Food Name:"
-              label-for="foodName">
-              <b-form-input
-                id="foodName"
-                type="text"
-                v-model="form.name"
-                required
-                placeholder="Enter food">
-              </b-form-input>
-            </b-form-group>
-            <b-form-group
+              v-model="form.name"
+              type="text"
+              required
+              placeholder="Enter food"/>
+          </b-form-group>
+          <b-form-group
+            id="foodCategory"
+            label="Category:"
+            label-for="foodCategory">
+            <b-form-select
               id="foodCategory"
-              label="Category:"
-              label-for="foodCategory">
-              <b-form-select
-                id="foodCategory"
-                :options="categories"
-                required
-                v-model="form.type">
-              </b-form-select>
-            </b-form-group>
-            <b-form-group
+              :options="categories"
+              v-model="form.type"
+              required/>
+          </b-form-group>
+          <b-form-group
+            id="date"
+            label="Expiration Date:"
+            label-for="date">
+            <b-form-input 
               id="date"
-              label="Expiration Date:"
-              label-for="date">
-              <b-form-input
-                id="date"
-                type="date"
-                v-model="form.expDate"
-                required
-                placeholder="Expiration date">
-              </b-form-input>
-            </b-form-group>
-            <b-button
-              id="submit"
-              type="submit"
-              variant="success">Submit Food Item
-            </b-button>
-          </b-form>
-        </form>
-      </article>
-      <b-button
-        class="main-button"
-        @click="showImage = !showImage"
-        type="button"
-        variant="secondary" >Expiration Guide
-      </b-button>
-    <img class="guide-img" v-if="showImage" src="https://thumbnails-visually.netdna-ssl.com/TheShelfLifeofFood_512f96cbed064.jpg" alt="">
+              v-model="form.expDate"
+              type="date"
+              required
+              placeholder="Expiration date"/>
+          </b-form-group>
+          <b-button
+            id="submit"
+            type="submit"
+            variant="success">Submit Food Item
+          </b-button>
+        </b-form>
+      </form>
+    </article>
+    <b-button
+      class="main-button"
+      type="button"
+      variant="secondary"
+      @click="showImage = !showImage">Expiration Guide
+    </b-button>
+    <img
+      v-if="showImage"
+      class="guide-img"
+      src="https://thumbnails-visually.netdna-ssl.com/TheShelfLifeofFood_512f96cbed064.jpg"
+      alt="an image that shows the expiration date for many types of foods">
   </section>
 </template>
 
 <script>
 export default {
-  props: ['getFood', 'userId'],
+  props: {
+    getFood: {
+      type: Function,
+      required: true
+    },
+    userId: {
+      type: Number,
+      default: null,
+      required: true
+    }
+  },
   data: () => ({
     showForm: false,
     showImage: false,
     form: {
-        user_id: 2,
+      user_id: 2,
         name: '',
         type: null,
         expDate: null
@@ -75,6 +95,11 @@ export default {
       ],
       show: true
   }),
+  computed: {
+    setId() {
+      return this.user_id = this.userId
+    }
+  },
   methods: {
     onSubmit() {
       console.log('i am being called')
@@ -96,11 +121,6 @@ export default {
       })
     },
   },
-  computed: {
-    setId() {
-      return this.user_id = this.userId
-    }
-  }
 }
 </script>
 

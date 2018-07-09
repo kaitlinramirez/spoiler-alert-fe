@@ -3,8 +3,8 @@
     <Header
       :getUser="getUser"/>
     <router-view
-      :userName="userInput"
-      :userId="userId"/>
+      :user-name="userInput"
+      :user-id="userId"/>
     <Footer />
   </div>
 </template>
@@ -14,16 +14,16 @@ import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 
 export default {
+  name: 'App',
+  components: {
+    Header,
+    Footer
+  },
   data () {
     return {
       userInput: null,
       userId: null
     }
-  },
-  name: 'App',
-  components: {
-    Header,
-    Footer
   },
   methods: {
     getUser(username) {

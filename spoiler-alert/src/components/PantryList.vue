@@ -1,21 +1,31 @@
 <template>
-    <section class="food-list">
-        <food-item
-            v-for="(food, index) in foods.items"
-            :food="food"
-            :getFood='getFood'
-            :key="index"/>
-    </section>
+  <section class="food-list">
+    <food-item
+      v-for="(food, index) in foods.items"
+      :food="food"
+      :get-food="getFood"
+      :key="index"/>
+  </section>
 </template>
 
 <script>
 import FoodItem from '@/components/FoodItem'
 
 export default {
-    props: ['foods', 'getFood'],
-    components: {
-        FoodItem
-    }
+	components: {
+			FoodItem
+	},
+	props: {
+		food: {
+			type: Array,
+			default: null,
+			required: true
+		},
+		getFood: {
+			type: Function,
+			required: true
+		}
+	}
 }
 </script>
 
