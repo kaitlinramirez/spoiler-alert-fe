@@ -39,30 +39,6 @@ export default {
           this.userInput = Response.user[0].username
         })
     },
-    matchUserId(username) {
-      const filterUsers = this.userTable.filter(user => user.username === username)[0]
-      this.userId = filterUsers;
-      if (this.userId === undefined) {
-          this.createNewUser(this.userInput);
-        }
-        else if (this.userId.length > 0) {
-          return this.userId = filterUsers[0].id;
-        }
-    },
-    createNewUser(username) {
-      const data = {
-          'username': username
-        };
-      fetch('https://g-spoiler-alert.herokuapp.com/api/v1/newuser', {
-        method: 'POST',
-        headers: {
-          'content-type': 'application/json'
-        },
-        body: JSON.stringify(data),
-        mode: 'cors',
-      })
-      .then(res => res.json())
-    }
   }
 }
 </script>
