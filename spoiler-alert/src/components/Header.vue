@@ -30,13 +30,16 @@
 <script>
 
 export default {
-  data() {
-    return {
-      userName: "",
+  props: {
+    getUser: {
+      type: Function,
+      required: true
     }
   },
-  props: {
-    getUser: Function
+  data() {
+    return {
+      userName: '',
+    }
   }
 }
 </script>
