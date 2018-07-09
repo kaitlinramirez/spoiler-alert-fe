@@ -19,25 +19,29 @@ export default {
     Header,
     Footer
   },
-  data () {
+  data() {
     return {
-      userInput: null,
+      userInput: '',
       userId: null
     }
   },
   methods: {
     getUser(username) {
       this.userInput = username;
-      this.findUser(username);
+      this.findUserId(username);
+      ;
     },
-    findUser(username) {
-      const apiUrl =  `https://g-spoiler-alert.herokuapp.com/api/v1/users/${this.userInput}`;
+    findUserId(username) {
+      const apiUrl = `https://g-spoiler-alert.herokuapp.com/api/v1/users/${username}`;
       fetch(apiUrl)
         .then(Response => Response.json())
         .then(Response => {
-          this.userId = Response.user[0].id;
-          this.userInput = Response.user[0].username
+          console.log(Response.user[0])
+          this.userId =  Response.user[0].id
+          // this.userInput = Response.user.username
         })
+        .then(this.$router.push('pantry'))
+        
     },
   }
 }

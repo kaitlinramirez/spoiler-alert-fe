@@ -41,16 +41,16 @@ export default {
   props: {
      userId: {
       type: Number,
-      default: null,
       required: true
     },
     userName: {
       type: String,
-      default: null,
+      default: String,
       required: true
     }
   },
-  data: () => ({
+  data() {
+    return {
     showPantry: true,
     foods: [],
     foodsById: [],
@@ -59,7 +59,8 @@ export default {
     dairy: 2,
     grain: 1,
     other: 2
-  }),
+    }
+  },
   computed: {
     getMeat(){
       return this.foods[0].items.filter( item => {
@@ -87,15 +88,17 @@ export default {
       })
     }
   },
+  // mounted: function () {
+  //   this.getFood()
+  // },
   methods: {
     getFood() {
-      const food_API_URL = `https://g-spoiler-alert.herokuapp.com/api/v1/pantry/${this.userId}`
-      console.log(food_API_URL);
-      fetch(food_API_URL)
-      .then(res => res.json())
-      .then(res => {
-        // console.log(res);
-        this.foods = res
+      const apiUrl = `https://g-spoiler-alert.herokuapp.com/api/v1/pantry/${this.userId}`
+      fetch(apiUrl)
+      .then(Response => Response.json())
+      .then(Response => {
+        console.log(Response)
+        this.foods = Response
       })
     }
   }

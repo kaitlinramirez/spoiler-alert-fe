@@ -76,17 +76,18 @@ export default {
     },
     userId: {
       type: Number,
-      default: null,
       required: true
     }
   },
-  data: () => ({
-    showForm: false,
-    showImage: false,
-    form: {
-      user_id: this.setId,
+  data() {
+    return {
+      id: this.userId,
+      showForm: false,
+      showImage: false,
+      form: {
+        user_id: this.userId,
         name: '',
-        type: null,
+        type: '',
         expDate: null
       },
       categories: [
@@ -94,21 +95,15 @@ export default {
         'Produce', 'Dairy', 'Meat', 'Grain', 'Other'
       ],
       show: true
-  }),
-  computed: {
-    setId() {
-      return this.user_id = this.userId
     }
   },
   methods: {
     onSubmit() {
-      console.log('i am being called')
-      console.log(this.form)
       const data = this.form
       fetch('https://g-spoiler-alert.herokuapp.com/api/v1/pantry/newitem', {
-        method: "POST",
+        method: 'POST',
         headers: {
-          "content-type": "application/json"
+          'Content-Type': 'application/json'
         },
         body: JSON.stringify(data),
         mode: 'cors',

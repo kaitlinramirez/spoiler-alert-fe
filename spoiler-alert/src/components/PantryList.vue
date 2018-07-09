@@ -12,20 +12,19 @@
 import FoodItem from '@/components/FoodItem'
 
 export default {
-	components: {
-			FoodItem
-	},
-	props: {
-		food: {
-			type: Array,
-			default: null,
-			required: true
-		},
-		getFood: {
-			type: Function,
-			required: true
-		}
-	}
+  components: {
+      FoodItem
+  },
+  props: {
+    foods: {
+      type: Object,
+      required: true
+    },
+    getFood: {
+      type: Function,
+      required: true
+    }
+  }
 }
 </script>
 
