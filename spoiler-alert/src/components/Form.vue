@@ -110,10 +110,8 @@ export default {
       })
       .then(res => res.json())
       .then(res => console.log(res))
-      .then(something => {
-        this.getFood()
-        this.showForm = false
-      })
+      .then(this.getFood())
+      .then(this.showForm = false)
     },
   },
 }
