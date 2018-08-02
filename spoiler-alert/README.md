@@ -1,21 +1,13 @@
 # spoiler-alert
 
-> A Vue.js project
+## ![](img.png)
 
-## Build Setup
+## [Live Site](https://cheatsheets-6b13a.firebaseapp.com/)
 
-``` bash
-# install dependencies
-npm install
+Spoiler Alert! is an application that keeps track of a user's pantry and tracks the groceries expiration dates. The grocery items in the virtual pantry are shown in order of soonest expiration.
 
-# serve with hot reload at localhost:8080
-npm run dev
+## Installation
 
-# build for production with minification
-npm run build
+> -run `npm install`
 
-# build for production and view the bundle analyzer report
-npm run build --report
-```
-
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+> -run 'npm run dev' to run locally
