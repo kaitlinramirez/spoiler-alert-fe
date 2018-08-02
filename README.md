@@ -2,7 +2,7 @@
 
 ## ![](img.png)
 
-## [Live Site](https://cheatsheets-6b13a.firebaseapp.com/)
+## [Live Site](https://g-spoiler-alert.firebaseapp.com)
 
 Spoiler Alert! is an application that keeps track of a user's pantry and tracks the groceries expiration dates. The grocery items in the virtual pantry are shown in order of soonest expiration.
 
